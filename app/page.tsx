@@ -15,7 +15,6 @@ import {
   TrendingUp,
   Shield,
   Clock,
-  ChartBar as BarChart3,
   Truck,
   Warehouse,
   Zap,
