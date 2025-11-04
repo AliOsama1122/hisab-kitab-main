@@ -13,7 +13,31 @@ import {
   Users,
   FileText,
   TrendingUp,
- import { Users, FileText, TrendingUp, Shield, Clock, ChartBar as BarChart3, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store, Play, Sparkles, Globe, Database, ChartBar as BarChart, Shield as ShieldIcon } from "lucide-react" document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  Shield,
+  Clock,
+  ChartBar as BarChart3,
+  Truck,
+  Warehouse,
+  Zap,
+  CircleCheck as CheckCircle,
+  Star,
+  ArrowRight,
+  Phone,
+  Calendar,
+  Building2,
+  Store,
+  Play,
+  Sparkles,
+  Globe,
+  Database,
+  ChartBar as BarChart,
+  Shield as ShieldIcon
+} from "lucide-react";
+import Image from "next/image";
+
+export default function Home() {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleScheduleDemo = () => {
