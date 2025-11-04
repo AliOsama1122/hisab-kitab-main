@@ -61,7 +61,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative transition-all">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="max-w-2xl">
           <Badge className="bg-orange-500/20 text-orange-100 border-orange-400 mb-6">
