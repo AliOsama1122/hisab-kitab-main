@@ -9,7 +9,36 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, FileText, TrendingUp, Shield, Clock, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store, Play, Sparkles, Globe, Database, Shield as ShieldIcon, Mail, MapPin, Award, Target, Lightbulb, Headphones as HeadphonesIcon, CreditCard, ChartBar as BarChart3 } from "lucide-react";
+import {
+  Users,
+  FileText,
+  TrendingUp,
+  Shield,
+  Clock,
+  Truck,
+  Warehouse,
+  Zap,
+  CircleCheck as CheckCircle,
+  Star,
+  ArrowRight,
+  Phone,
+  Calendar,
+  Building2,
+  Store,
+  Play,
+  Sparkles,
+  Globe,
+  Database,
+  Shield as ShieldIcon,
+  Mail,
+  MapPin,
+  Award,
+  Target,
+  Lightbulb,
+  Headphones as HeadphonesIcon,
+  CreditCard,
+  ChartBar as BarChart3,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -89,15 +118,19 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50"
+      >
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
-            backgroundImage: "url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"
+            backgroundImage:
+              "url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')",
           }}
         ></div>
-        
+
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-orange-400/10 rounded-full blur-3xl animate-float"></div>
@@ -112,11 +145,15 @@ export default function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-fade-in-up delay-100">
                 <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-blue-100">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-700">10,000+ Active Users</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    10,000+ Active Users
+                  </span>
                 </div>
                 <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-orange-100">
                   <Shield className="w-4 h-4 text-orange-600 mr-2" />
-                  <span className="text-sm font-medium text-gray-700">99.9% Uptime</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    99.9% Uptime
+                  </span>
                 </div>
               </div>
 
@@ -131,10 +168,14 @@ export default function Home() {
                     360° Business Platform
                   </span>
                 </h1>
-                
+
                 <p className="text-xl md:text-2xl text-gray-600 max-w-2xl opacity-0 animate-fade-in-up delay-300">
-                  Transform your Pakistani business with our unified CRM and E-Invoicing platform. 
-                  <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent"> Streamline operations, manage customers, and boost growth</span> 
+                  Transform your Pakistani business with our unified CRM and
+                  E-Invoicing platform.
+                  <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                    {" "}
+                    Streamline operations, manage customers, and boost growth
+                  </span>
                   from one powerful dashboard.
                 </p>
               </div>
@@ -143,15 +184,21 @@ export default function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 opacity-0 animate-fade-in-up delay-400">
                 <div className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-full px-4 py-2 border border-blue-200">
                   <Users className="w-4 h-4 text-blue-600 mr-2" />
-                  <span className="text-sm font-medium text-blue-800">CRM Management</span>
+                  <span className="text-sm font-medium text-blue-800">
+                    CRM Management
+                  </span>
                 </div>
                 <div className="flex items-center bg-gradient-to-r from-orange-50 to-orange-100 rounded-full px-4 py-2 border border-orange-200">
                   <FileText className="w-4 h-4 text-orange-600 mr-2" />
-                  <span className="text-sm font-medium text-orange-800">E-Invoicing</span>
+                  <span className="text-sm font-medium text-orange-800">
+                    E-Invoicing
+                  </span>
                 </div>
                 <div className="flex items-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-full px-4 py-2 border border-gray-200">
                   <BarChart3 className="w-4 h-4 text-gray-600 mr-2" />
-                  <span className="text-sm font-medium text-gray-800">Analytics</span>
+                  <span className="text-sm font-medium text-gray-800">
+                    Analytics
+                  </span>
                 </div>
               </div>
 
@@ -178,11 +225,19 @@ export default function Home() {
 
               {/* Social Proof */}
               <div className="opacity-0 animate-fade-in-up delay-600">
-                <p className="text-sm text-gray-500 mb-3">Trusted by leading Pakistani businesses</p>
+                <p className="text-sm text-gray-500 mb-3">
+                  Trusted by leading Pakistani businesses
+                </p>
                 <div className="flex items-center justify-center lg:justify-start space-x-6 opacity-60">
-                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">TEXTILES</div>
-                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">ELECTRONICS</div>
-                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">COLD STORAGE</div>
+                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">
+                    TEXTILES
+                  </div>
+                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">
+                    ELECTRONICS
+                  </div>
+                  <div className="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded">
+                    COLD STORAGE
+                  </div>
                 </div>
               </div>
             </div>
@@ -194,12 +249,14 @@ export default function Home() {
                 <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100 p-6 transform hover:scale-105 transition-all duration-500">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-orange-600 rounded-lg flex items-center justify-center">
-                        
-                      </div>
+                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-orange-600 rounded-lg flex items-center justify-center"></div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">Business Dashboard</h3>
-                        <p className="text-xs text-gray-500">Real-time insights</p>
+                        <h3 className="font-semibold text-gray-900">
+                          Business Dashboard
+                        </h3>
+                        <p className="text-xs text-gray-500">
+                          Real-time insights
+                        </p>
                       </div>
                     </div>
                     <div className="flex space-x-2">
@@ -214,8 +271,12 @@ export default function Home() {
                     <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-100">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-blue-600 font-medium">Revenue</p>
-                          <p className="text-lg font-bold text-blue-900">₨2.4M</p>
+                          <p className="text-xs text-blue-600 font-medium">
+                            Revenue
+                          </p>
+                          <p className="text-lg font-bold text-blue-900">
+                            ₨2.4M
+                          </p>
                         </div>
                         <TrendingUp className="w-6 h-6 text-blue-600" />
                       </div>
@@ -226,8 +287,12 @@ export default function Home() {
                     <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 border border-orange-100">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-orange-600 font-medium">Customers</p>
-                          <p className="text-lg font-bold text-orange-900">1,247</p>
+                          <p className="text-xs text-orange-600 font-medium">
+                            Customers
+                          </p>
+                          <p className="text-lg font-bold text-orange-900">
+                            1,247
+                          </p>
                         </div>
                         <Users className="w-6 h-6 text-orange-600" />
                       </div>
@@ -240,7 +305,9 @@ export default function Home() {
                   {/* Chart Area */}
                   <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center justify-between mb-3">
-                      <p className="text-sm font-medium text-gray-700">Monthly Growth</p>
+                      <p className="text-sm font-medium text-gray-700">
+                        Monthly Growth
+                      </p>
                       <div className="flex items-center text-blue-600">
                         <TrendingUp className="w-4 h-4 mr-1" />
                         <span className="text-xs font-medium">+23.5%</span>
@@ -251,7 +318,10 @@ export default function Home() {
                         <div
                           key={index}
                           className="bg-gradient-to-t from-blue-400 to-orange-400 rounded-sm flex-1 animate-pulse"
-                          style={{ height: `${height}%`, animationDelay: `${index * 0.1}s` }}
+                          style={{
+                            height: `${height}%`,
+                            animationDelay: `${index * 0.1}s`,
+                          }}
                         ></div>
                       ))}
                     </div>
@@ -265,8 +335,12 @@ export default function Home() {
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Invoice Sent</p>
-                      <p className="text-xs text-gray-500">₨45,000 • Ahmed Textiles</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        Invoice Sent
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        ₨45,000 • Ahmed Textiles
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -277,8 +351,12 @@ export default function Home() {
                       <Globe className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">New Customer</p>
-                      <p className="text-xs text-gray-500">Karachi Electronics</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        New Customer
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        Karachi Electronics
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -298,6 +376,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Enhanced Infinite Scrolling Text Strip */}
+      <section className="relative py-3 overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 shadow-lg">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Animated border effect */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse delay-1000"></div>
+
+        <div className="relative z-10 flex animate-infinite-scroll whitespace-nowrap">
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className="mx-6 text-white text-lg font-bold uppercase tracking-wider flex items-center"
+            >
+              <Sparkles className="w-5 h-5 mr-2 text-yellow-300 animate-pulse" />
+              Transform Your Business
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-500" />
+              Streamline Operations
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-700" />
+              Boost Growth
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-1000" />
+              Pakistan's Leading 360° Business Platform
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-300" />
+              CRM & E-Invoicing Solution
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-600" />
+              Trusted by 10,000+ Businesses
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-900" />
+              Built in Help Guides
+              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-200" />
+              Affordable for Every Business
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -305,63 +422,96 @@ export default function Home() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  About <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Hisab Kitab</span>
+                  About{" "}
+                  <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                    Hisab Kitab
+                  </span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  We are Pakistan's premier business management platform, dedicated to empowering local businesses with cutting-edge technology solutions.
+                  We are Pakistan's premier business management platform,
+                  dedicated to empowering local businesses with cutting-edge
+                  technology solutions.
                 </p>
               </div>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Target className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Mission</h3>
-                    <p className="text-gray-600">To digitally transform Pakistani businesses by providing comprehensive, user-friendly management solutions that drive growth and efficiency.</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Our Mission
+                    </h3>
+                    <p className="text-gray-600">
+                      To digitally transform Pakistani businesses by providing
+                      comprehensive, user-friendly management solutions that
+                      drive growth and efficiency.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Lightbulb className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Vision</h3>
-                    <p className="text-gray-600">To become the leading business management platform in Pakistan, enabling every business to reach its full potential through technology.</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Our Vision
+                    </h3>
+                    <p className="text-gray-600">
+                      To become the leading business management platform in
+                      Pakistan, enabling every business to reach its full
+                      potential through technology.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Award className="w-6 h-6 text-gray-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Values</h3>
-                    <p className="text-gray-600">Innovation, reliability, and customer success drive everything we do. We believe in building lasting partnerships with our clients.</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Our Values
+                    </h3>
+                    <p className="text-gray-600">
+                      Innovation, reliability, and customer success drive
+                      everything we do. We believe in building lasting
+                      partnerships with our clients.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 shadow-lg">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">10K+</div>
-                    <div className="text-sm text-gray-600 mt-1">Active Users</div>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                      10K+
+                    </div>
+                    <div className="text-sm text-gray-600 mt-1">
+                      Active Users
+                    </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">99.9%</div>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                      99.9%
+                    </div>
                     <div className="text-sm text-gray-600 mt-1">Uptime</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">50+</div>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                      50+
+                    </div>
                     <div className="text-sm text-gray-600 mt-1">Cities</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">24/7</div>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                      24/7
+                    </div>
                     <div className="text-sm text-gray-600 mt-1">Support</div>
                   </div>
                 </div>
@@ -372,14 +522,21 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section
+        id="services"
+        className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Services</span>
+              Our{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Services
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive business solutions tailored for Pakistani enterprises
+              Comprehensive business solutions tailored for Pakistani
+              enterprises
             </p>
           </div>
 
@@ -391,14 +548,24 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-xl">CRM Solutions</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Complete customer relationship management with Pakistani business workflows in mind
+                  Complete customer relationship management with Pakistani
+                  business workflows in mind
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Customer Database Management</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Lead Tracking & Conversion</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Communication History</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Customer Database Management
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Lead Tracking & Conversion
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Communication History
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -410,14 +577,24 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-xl">E-Invoicing</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Automated invoicing system compliant with Pakistani tax regulations
+                  Automated invoicing system compliant with Pakistani tax
+                  regulations
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Tax Compliant Invoices</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Automated Calculations</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Payment Tracking</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Tax Compliant Invoices
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Automated Calculations
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Payment Tracking
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -434,9 +611,18 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Sales Performance</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Financial Reports</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Custom Dashboards</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Sales Performance
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Financial Reports
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Custom Dashboards
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -453,9 +639,18 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Inventory Management</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Supplier Relations</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Shipment Tracking</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Inventory Management
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Supplier Relations
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Shipment Tracking
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -467,14 +662,24 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-xl">Financial Management</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Complete financial oversight with expense tracking and budgeting
+                  Complete financial oversight with expense tracking and
+                  budgeting
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Expense Tracking</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Budget Planning</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Cash Flow Analysis</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Expense Tracking
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Budget Planning
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    Cash Flow Analysis
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -491,9 +696,18 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Live Chat Support</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Phone Support</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Training Sessions</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Live Chat Support
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Phone Support
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-gray-500 mr-2" />
+                    Training Sessions
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -506,7 +720,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Powerful <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Features</span>
+              Powerful{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Features
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Everything you need to run your Pakistani business efficiently,
@@ -604,7 +821,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              360° Solutions for <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Industries</span>
+              360° Solutions for{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Pakistani Industries
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Hisab Kitab adapts to your industry's unique workflows and
@@ -711,12 +931,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Built for Every <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Business</span>
+              Built for Every{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Pakistani Business
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Whether you're an enterprise, accountant, or small business owner,
-              Hisab Kitab provides tailored solutions for your specific
-              needs.
+              Hisab Kitab provides tailored solutions for your specific needs.
             </p>
           </div>
 
@@ -840,7 +1062,7 @@ export default function Home() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="border-white text-inherit hover:bg-white hover:text-blue-600 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Now: +92 300 123 4567
@@ -853,11 +1075,17 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section
+        id="testimonials"
+        className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Businesses</span>
+              Trusted by{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Pakistani Businesses
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See how Hisab Kitab has helped businesses across Pakistan
@@ -881,8 +1109,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  "Hisab Kitab transformed our inventory management. We
-                  reduced manual work by 60% and improved our invoice accuracy
+                  "Hisab Kitab transformed our inventory management. We reduced
+                  manual work by 60% and improved our invoice accuracy
                   significantly. The CRM features help us maintain better
                   relationships with our buyers."
                 </p>
@@ -930,8 +1158,8 @@ export default function Home() {
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   "Managing warranties and serial numbers became effortless with
-                  Hisab Kitab. Our customer service improved dramatically,
-                  and we can track products across all our store locations."
+                  Hisab Kitab. Our customer service improved dramatically, and
+                  we can track products across all our store locations."
                 </p>
                 <p className="text-sm text-gray-500">
                   - Ali Hassan, Store Manager
@@ -947,17 +1175,23 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get in <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Touch</span>
+              Get in{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Touch
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to transform your business? Contact us today for a free consultation and demo.
+              Ready to transform your business? Contact us today for a free
+              consultation and demo.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Contact Information
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
@@ -968,7 +1202,7 @@ export default function Home() {
                       <p className="text-gray-600">+92 300 123 4567</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg flex items-center justify-center">
                       <Mail className="w-6 h-6 text-orange-600" />
@@ -978,7 +1212,7 @@ export default function Home() {
                       <p className="text-gray-600">info@hisabkitab.pk</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-gray-600" />
@@ -988,56 +1222,96 @@ export default function Home() {
                       <p className="text-gray-600">Karachi, Pakistan</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-orange-100 rounded-lg flex items-center justify-center">
                       <Clock className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Business Hours</p>
+                      <p className="font-semibold text-gray-900">
+                        Business Hours
+                      </p>
                       <p className="text-gray-600">Mon-Fri: 9AM-6PM</p>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-6 border border-blue-100">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Why Choose Us?</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  Why Choose Us?
+                </h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Local Pakistani business expertise</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />24/7 customer support</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Free setup and training</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />No long-term contracts</li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Local Pakistani business expertise
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    24/7 customer support
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                    Free setup and training
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2" />
+                    No long-term contracts
+                  </li>
                 </ul>
               </div>
             </div>
-            
+
             <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Free Demo</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Schedule Your Free Demo
+              </h3>
               <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                  <input type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Business Type</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Business Type
+                  </label>
                   <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     <option>Select your industry</option>
                     <option>Textiles</option>
@@ -1047,13 +1321,19 @@ export default function Home() {
                     <option>Other</option>
                   </select>
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your business needs..."></textarea>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Tell us about your business needs..."
+                  ></textarea>
                 </div>
-                
-                <Button 
+
+                <Button
                   className="w-full bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                   size="lg"
                 >
@@ -1073,13 +1353,15 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
                 <Image
-                  src="/logo_new.png"
+                  src="/transparent-logo.png"
                   alt="Hisab Kitab Logo"
-                  width={32}
-                  height={32}
-                  className="mr-3"
+                  width={60}
+                  height={60}
+                  className="mr-3 bg-gray-900"
                 />
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Hisab Kitab</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+                  Hisab Kitab
+                </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
                 Pakistan's leading 360° CRM and E-Invoicing platform, empowering
@@ -1145,8 +1427,8 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2024 Hisab Kitab. All rights reserved. | Made for
-              Pakistani Businesses
+              &copy; 2024 Hisab Kitab. All rights reserved. | Made for Pakistani
+              Businesses
             </p>
           </div>
         </div>

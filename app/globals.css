@@ -104,7 +104,8 @@
   }
 
   @keyframes gradient-x {
-    0%, 100% {
+    0%,
+    100% {
       background-size: 200% 200%;
       background-position: left center;
     }
@@ -122,22 +123,42 @@
     animation: fade-in-left 0.8s ease-out forwards;
   }
 
-
   /* Delay classes */
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-500 { animation-delay: 0.5s; }
-  .delay-600 { animation-delay: 0.6s; }
-  .delay-700 { animation-delay: 0.7s; }
-  .delay-1000 { animation-delay: 1s; }
-  .delay-1500 { animation-delay: 1.5s; }
-  .delay-2000 { animation-delay: 2s; }
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  .delay-600 {
+    animation-delay: 0.6s;
+  }
+  .delay-700 {
+    animation-delay: 0.7s;
+  }
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+  .delay-1500 {
+    animation-delay: 1.5s;
+  }
+  .delay-2000 {
+    animation-delay: 2s;
+  }
 
   /* Custom hero animations */
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -156,7 +177,8 @@
 
   /* Custom gradient animations */
   @keyframes gradient-shift {
-    0%, 100% {
+    0%,
+    100% {
       background-position: 0% 50%;
     }
     50% {
@@ -200,6 +222,21 @@
     animation: slideInFromRight 0.8s ease-out forwards;
   }
 
+  /* Enhanced infinite scrolling animation */
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-infinite-scroll {
+    display: inline-block;
+    animation: infinite-scroll 25s linear infinite;
+  }
+
   /* Hover effects for cards */
   .card-hover {
     transition: all 0.3s ease;
@@ -207,11 +244,29 @@
 
   .card-hover:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   /* Smooth transitions for all interactive elements */
-  button, .button, a {
+  button,
+  .button,
+  a {
     transition: all 0.3s ease;
+  }
+
+  /* Pulse animation for decorative elements */
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
