@@ -30,13 +30,13 @@ export default function Home() {
             <div className="flex items-center">
               <Image
                 src="/logo_new.png"
-                alt="Hisab Kitab 360 Logo"
+                alt="Hisab Kitab Logo"
                 width={60}
                 height={60}
                 className="mr-3"
               />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                Hisab Kitab 360
+                Hisab Kitab
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -305,7 +305,7 @@ export default function Home() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  About <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Hisab Kitab 360</span>
+                  About <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Hisab Kitab</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   We are Pakistan's premier business management platform, dedicated to empowering local businesses with cutting-edge technology solutions.
@@ -607,7 +607,7 @@ export default function Home() {
               360° Solutions for <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Industries</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hisab Kitab 360 adapts to your industry's unique workflows and
+              Hisab Kitab adapts to your industry's unique workflows and
               requirements, providing specialized features for different
               business sectors.
             </p>
@@ -715,7 +715,7 @@ export default function Home() {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Whether you're an enterprise, accountant, or small business owner,
-              Hisab Kitab 360 provides tailored solutions for your specific
+              Hisab Kitab provides tailored solutions for your specific
               needs.
             </p>
           </div>
@@ -750,7 +750,7 @@ export default function Home() {
               <div className="w-16 h-16 mb-6 relative">
                 <Image
                   src="/logo_new.png"
-                  alt="Hisab Kitab 360"
+                  alt="Hisab Kitab"
                   width={64}
                   height={64}
                 />
@@ -824,7 +824,7 @@ export default function Home() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-blue-50 mb-8">
-            Join hundreds of Pakistani businesses that trust Hisab Kitab 360 for
+            Join hundreds of Pakistani businesses that trust Hisab Kitab for
             their CRM and E-Invoicing needs. Schedule your free demo today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -860,7 +860,7 @@ export default function Home() {
               Trusted by <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Businesses</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how Hisab Kitab 360 has helped businesses across Pakistan
+              See how Hisab Kitab has helped businesses across Pakistan
               streamline their operations and improve their bottom line.
             </p>
           </div>
@@ -881,7 +881,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  "Hisab Kitab 360 transformed our inventory management. We
+                  "Hisab Kitab transformed our inventory management. We
                   reduced manual work by 60% and improved our invoice accuracy
                   significantly. The CRM features help us maintain better
                   relationships with our buyers."
@@ -930,7 +930,7 @@ export default function Home() {
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   "Managing warranties and serial numbers became effortless with
-                  Hisab Kitab 360. Our customer service improved dramatically,
+                  Hisab Kitab. Our customer service improved dramatically,
                   and we can track products across all our store locations."
                 </p>
                 <p className="text-sm text-gray-500">
@@ -1074,12 +1074,12 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <Image
                   src="/logo_new.png"
-                  alt="Hisab Kitab 360 Logo"
+                  alt="Hisab Kitab Logo"
                   width={32}
                   height={32}
                   className="mr-3"
                 />
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Hisab Kitab 360</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Hisab Kitab</span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
                 Pakistan's leading 360° CRM and E-Invoicing platform, empowering
@@ -1145,7 +1145,7 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2024 Hisab Kitab 360. All rights reserved. | Made for
+              &copy; 2024 Hisab Kitab. All rights reserved. | Made for
               Pakistani Businesses
             </p>
           </div>
