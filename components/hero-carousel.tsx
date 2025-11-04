@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import useEmblaCarousel from 'embla-carousel-react';
+import { EmblaOptionsType } from 'embla-carousel';
 
 const HeroCarousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [emblaMainRef, emblaMainApi] = useEmblaCarousel({ loop: true });
+  const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
+    containScroll: 'keepSnaps',
+    dragFree: true,
+  });
 
   const handleScheduleDemo = () => {
     window.open('tel:+923001234567', '_self');
@@ -45,138 +52,171 @@ const HeroCarousel = () => {
     }
   ];
 
+  const scrollPrev = useCallback(() => {
+    if (emblaMainApi) emblaMainApi.scrollPrev();
+  }, [emblaMainApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaMainApi) emblaMainApi.scrollNext();
+  }, [emblaMainApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaMainApi || !emblaThumbsApi) return;
+    setSelectedIndex(emblaMainApi.selectedScrollSnap());
+    emblaThumbsApi.scrollTo(emblaMainApi.selectedScrollSnap());
+  }, [emblaMainApi, emblaThumbsApi, setSelectedIndex]);
+
+  const onThumbClick = useCallback(
+    (index: number) => {
+      if (!emblaMainApi || !emblaThumbsApi) return;
+      emblaMainApi.scrollTo(index);
+    },
+    [emblaMainApi, emblaThumbsApi]
+  );
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    if (!emblaMainApi) return;
+    onSelect();
+    emblaMainApi.on('select', onSelect);
+    emblaMainApi.on('reInit', onSelect);
+  }, [emblaMainApi, onSelect]);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!emblaMainApi) return;
+    
+    const autoplay = setInterval(() => {
+      emblaMainApi.scrollNext();
     }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+    return () => clearInterval(autoplay);
+  }, [emblaMainApi]);
 
   return (
     <div className="relative">
-      <div className="grid lg:grid-cols-2 gap-12 items-center transition-all delay-150 duration-300">
-        <div className="max-w-2xl transition-all delay-150 duration-300">
-          <Badge className="bg-orange-500/20 text-orange-100 border-orange-400 mb-6">
-            {slides[currentSlide].badge}
-          </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            {slides[currentSlide].title}
-            <span className="text-orange-300 block">{slides[currentSlide].highlight}</span>
-          </h1>
-          <p className="text-xl text-green-50 mb-8 leading-relaxed">
-            {slides[currentSlide].description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              onClick={handleScheduleDemo}
-              size="lg" 
-              className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto"
-            >
-              <Calendar className="w-5 h-5 mr-3" />
-              Schedule Free Demo
-              <ArrowRight className="w-5 h-5 ml-3" />
-            </Button>
-            <Button 
-              onClick={() => scrollToSection('features')}
-              variant="outline" 
-              size="lg" 
-              className="border-white text-primary hover:bg-white hover:text-blue-700 text-lg px-8 py-4 h-auto"
-            >
-              See Features
-            </Button>
-          </div>
-          <div className="flex items-center mt-8 text-green-100">
-            <div className="flex -space-x-2 mr-4">
-              <Image
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
-                alt="Business Owner"
-                width={32}
-                height={32}
-                className="w-8 h-8 rounded-full border-2 border-white object-cover"
-              />
-              <Image
-                src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
-                alt="Entrepreneur"
-                width={32}
-                height={32}
-                className="w-8 h-8 rounded-full border-2 border-white object-cover"
-              />
-              <Image
-                src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
-                alt="Business Manager"
-                width={32}
-                height={32}
-                className="w-8 h-8 rounded-full border-2 border-white object-cover"
-              />
-              <Image
-                src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
-                alt="CEO"
-                width={32}
-                height={32}
-                className="w-8 h-8 rounded-full border-2 border-white object-cover"
-              />
-            </div>
-            <span className="text-sm">Trusted by 500+ Pakistani businesses</span>
-          </div>
-        </div>
-        <div className="hidden lg:block">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-            <div className="bg-white rounded-lg p-6 shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-gray-900 font-semibold">{slides[currentSlide].dashboardTitle}</h3>
-                <Badge className="bg-orange-100 text-orange-800">Live</Badge>
+      <div className="overflow-hidden" ref={emblaMainRef}>
+        <div className="flex">
+          {slides.map((slide, index) => (
+            <div key={index} className="flex-[0_0_100%] min-w-0">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="max-w-2xl">
+                  <Badge className="bg-orange-500/20 text-orange-100 border-orange-400 mb-6">
+                    {slide.badge}
+                  </Badge>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    {slide.title}
+                    <span className="text-orange-300 block">{slide.highlight}</span>
+                  </h1>
+                  <p className="text-xl text-green-50 mb-8 leading-relaxed">
+                    {slide.description}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      onClick={handleScheduleDemo}
+                      size="lg" 
+                      className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto transition-all duration-300"
+                    >
+                      <Calendar className="w-5 h-5 mr-3" />
+                      Schedule Free Demo
+                      <ArrowRight className="w-5 h-5 ml-3" />
+                    </Button>
+                    <Button 
+                      onClick={() => scrollToSection('features')}
+                      variant="outline" 
+                      size="lg" 
+                      className="border-white text-gray-900 bg-white hover:bg-gray-100 hover:text-gray-900 text-lg px-8 py-4 h-auto transition-all duration-300"
+                    >
+                      See Features
+                    </Button>
+                  </div>
+                  <div className="flex items-center mt-8 text-green-100">
+                    <div className="flex -space-x-2 mr-4">
+                      <Image
+                        src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+                        alt="Business Owner"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                      />
+                      <Image
+                        src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+                        alt="Entrepreneur"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                      />
+                      <Image
+                        src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+                        alt="Business Manager"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                      />
+                      <Image
+                        src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+                        alt="CEO"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                      />
+                    </div>
+                    <span className="text-sm">Trusted by 500+ Pakistani businesses</span>
+                  </div>
+                </div>
+                <div className="hidden lg:block">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 transform transition-all duration-700 ease-in-out">
+                    <div className="bg-white rounded-lg p-6 shadow-2xl">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-gray-900 font-semibold">{slide.dashboardTitle}</h3>
+                        <Badge className="bg-orange-100 text-orange-800">Live</Badge>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-600">
+                            {slide.dashboardTitle === "Customer Management" ? "Total Customers" : "Monthly Revenue"}
+                          </span>
+                          <span className="font-bold text-gray-900">{slide.revenue}</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className={`bg-blue-600 h-2 rounded-full transition-all duration-1000 ease-out ${
+                            index === 0 ? 'w-3/4' : 
+                            index === 1 ? 'w-4/5' : 'w-5/6'
+                          }`}></div>
+                        </div>
+                        <div className="flex justify-between items-center text-sm">
+                          <span className="text-gray-500">
+                            {slide.dashboardTitle === "Customer Management" ? "New Clients" : 
+                             slide.dashboardTitle === "Analytics Overview" ? "Growth Rate" : "Invoices Generated"}
+                          </span>
+                          <span className="text-orange-600">{slide.growth}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">
-                    {slides[currentSlide].dashboardTitle === "Customer Management" ? "Total Customers" : "Monthly Revenue"}
-                  </span>
-                  <span className="font-bold text-gray-900">{slides[currentSlide].revenue}</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className={`bg-blue-600 h-2 rounded-full ${
-                    currentSlide === 0 ? 'w-3/4' : 
-                    currentSlide === 1 ? 'w-4/5' : 'w-5/6'
-                  }`}></div>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-500">
-                    {slides[currentSlide].dashboardTitle === "Customer Management" ? "New Clients" : 
-                     slides[currentSlide].dashboardTitle === "Analytics Overview" ? "Growth Rate" : "Invoices Generated"}
-                  </span>
-                  <span className="text-orange-600">{slides[currentSlide].growth}</span>
-                </div>
-              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
       {/* Carousel Controls */}
       <div className="absolute top-1/2 -translate-y-1/2 left-4 lg:left-8">
         <Button
-          onClick={prevSlide}
+          onClick={scrollPrev}
           variant="outline"
           size="icon"
-          className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+          className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
         >
           <ChevronLeft className="w-4 h-4" />
         </Button>
       </div>
       <div className="absolute top-1/2 -translate-y-1/2 right-4 lg:right-8">
         <Button
-          onClick={nextSlide}
+          onClick={scrollNext}
           variant="outline"
           size="icon"
-          className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+          className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
         >
           <ChevronRight className="w-4 h-4" />
         </Button>
@@ -187,9 +227,9 @@ const HeroCarousel = () => {
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-orange-300' : 'bg-white/30'
+            onClick={() => onThumbClick(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === selectedIndex ? 'bg-orange-300 scale-110' : 'bg-white/30 hover:bg-white/50'
             }`}
           />
         ))}
