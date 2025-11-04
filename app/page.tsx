@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Users,
   FileText,
@@ -28,19 +27,14 @@ import {
   Play,
   Sparkles,
   Globe,
-  Database,
-  Shield as ShieldIcon,
   Mail,
   MapPin,
-  Award,
-  Target,
-  Lightbulb,
-  Headphones as HeadphonesIcon,
-  CreditCard,
   ChartBar as BarChart3,
 } from "lucide-react";
 import Image from "next/image";
 import AboutSection from "@/components/webpages/home/AboutSection";
+import ServicesSection from "@/components/webpages/home/ServicesSection";
+import FBRProcessSection from "@/components/webpages/home/FBRProcessSection";
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -416,6 +410,8 @@ export default function Home() {
         </div>
       </section>
 
+      {<FBRProcessSection />}
+
       {/* About Section
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -525,7 +521,7 @@ export default function Home() {
       {<AboutSection />}
 
       {/* Services Section */}
-      <section
+      {/* <section
         id="services"
         className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
       >
@@ -716,7 +712,8 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
+      {<ServicesSection />}
 
       {/* Features Overview Section */}
       <section id="features" className="py-20 bg-white">

@@ -299,3 +299,15 @@
   background-size: 200% 200%;
   animation: gradient-x 6s ease infinite;
 }
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.magnetic {
+  transition: all 0.3s ease;
+}
+
+.counter::before {
+  content: attr(data-target);
+}
