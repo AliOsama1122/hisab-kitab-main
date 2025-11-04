@@ -122,9 +122,6 @@
     animation: fade-in-left 0.8s ease-out forwards;
   }
 
-  .animate-gradient-x {
-    animation: gradient-x 3s ease infinite;
-  }
 
   /* Delay classes */
   .delay-100 { animation-delay: 0.1s; }

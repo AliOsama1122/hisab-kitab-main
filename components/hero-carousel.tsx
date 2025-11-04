@@ -114,16 +114,16 @@ const HeroCarousel = () => {
     <div className="relative min-h-screen flex items-center">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-4 h-4 bg-orange-400 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute top-20 left-10 w-4 h-4 bg-blue-400 rounded-full animate-bounce delay-300"></div>
         <div className="absolute top-40 right-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce delay-700"></div>
-        <div className="absolute bottom-40 left-20 w-5 h-5 bg-green-400 rounded-full animate-bounce delay-1000"></div>
+        <div className="absolute bottom-40 left-20 w-5 h-5 bg-indigo-400 rounded-full animate-bounce delay-1000"></div>
         <div className="absolute bottom-20 right-10 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-1500"></div>
       </div>
 
@@ -135,21 +135,21 @@ const HeroCarousel = () => {
                 <div className="max-w-2xl space-y-8">
                   {/* Badge with enhanced styling */}
                   <div className="animate-fade-in-up delay-100">
-                    <Badge className="bg-gradient-to-r from-orange-500/20 to-pink-500/20 text-orange-100 border-orange-400/30 px-4 py-2 text-sm font-medium backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+                    <Badge className="bg-blue-500/20 text-blue-100 border-blue-400/30 px-4 py-2 text-sm font-medium backdrop-blur-sm hover:scale-105 transition-transform duration-300">
                       {slide.badge}
                     </Badge>
                   </div>
 
                   {/* Main heading with enhanced typography */}
                   <div className="animate-fade-in-up delay-200">
-                    <p className="text-orange-200 text-lg font-medium mb-2 tracking-wide">
+                    <p className="text-blue-200 text-lg font-medium mb-2 tracking-wide">
                       {slide.subtitle}
                     </p>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                      <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                      <span className="text-white">
                         {slide.title}
                       </span>
-                      <span className="block bg-gradient-to-r from-orange-300 via-orange-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+                      <span className="block text-blue-300">
                         {slide.highlight}
                       </span>
                     </h1>
@@ -167,7 +167,7 @@ const HeroCarousel = () => {
                     <Button 
                       onClick={handleScheduleDemo}
                       size="lg" 
-                      className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white text-lg px-8 py-4 h-auto rounded-full shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 transform hover:scale-105"
+                      className="group bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-4 h-auto rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
                     >
                       <Calendar className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
                       Schedule Free Demo
@@ -205,9 +205,9 @@ const HeroCarousel = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="text-green-100">
+                    <div className="text-blue-100">
                       <p className="font-semibold">500+ Pakistani businesses</p>
-                      <p className="text-sm text-green-200">trust our platform</p>
+                      <p className="text-sm text-blue-200">trust our platform</p>
                     </div>
                   </div>
 
@@ -215,7 +215,7 @@ const HeroCarousel = () => {
                   <div className="grid grid-cols-3 gap-4 animate-fade-in-up delay-600">
                     {slide.stats.map((stat, i) => (
                       <div key={i} className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                        <stat.icon className="w-6 h-6 text-orange-400 mx-auto mb-2" />
+                        <stat.icon className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                         <p className="text-2xl font-bold text-white">{stat.value}</p>
                         <p className="text-xs text-blue-200">{stat.label}</p>
                       </div>
@@ -227,7 +227,7 @@ const HeroCarousel = () => {
                 <div className="hidden lg:block animate-fade-in-left delay-300">
                   <div className="relative">
                     {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-3xl blur-2xl transform rotate-1"></div>
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-2xl transform rotate-1"></div>
                     
                     {/* Main dashboard container */}
                     <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl transform transition-all duration-700 ease-in-out hover:scale-105">
@@ -256,6 +256,7 @@ const HeroCarousel = () => {
                           {/* Animated progress bar */}
                           <div className="w-full bg-gray-200 rounded-full h-3 mb-2 overflow-hidden">
                             <div className={`bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-2000 ease-out ${
+                            <div className={`bg-blue-500 h-3 rounded-full transition-all duration-2000 ease-out ${
                               index === 0 ? 'w-3/4' : 
                               index === 1 ? 'w-4/5' : 'w-5/6'
                             }`}>
@@ -265,7 +266,7 @@ const HeroCarousel = () => {
                           
                           <div className="flex justify-between items-center text-sm">
                             <span className="text-gray-500">Growth Rate</span>
-                            <span className="text-orange-600 font-semibold flex items-center">
+                            <span className="text-blue-600 font-semibold flex items-center">
                               <TrendingUp className="w-4 h-4 mr-1" />
                               {slide.growth}
                             </span>
@@ -282,7 +283,7 @@ const HeroCarousel = () => {
                           {/* Animated bars */}
                           <div className="flex items-end space-x-2 h-20">
                             {[40, 65, 45, 80, 60, 90, 75].map((height, i) => (
-                              <div key={i} className="flex-1 bg-gradient-to-t from-blue-400 to-purple-500 rounded-t-sm transition-all duration-1000 ease-out" 
+                              <div key={i} className="flex-1 bg-blue-500 rounded-t-sm transition-all duration-1000 ease-out" 
                                    style={{ 
                                      height: `${height}%`,
                                      animationDelay: `${i * 200}ms`
@@ -331,7 +332,7 @@ const HeroCarousel = () => {
             onClick={() => onThumbClick(index)}
             className={`relative transition-all duration-300 ${
               index === selectedIndex 
-                ? 'w-8 h-3 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full' 
+                ? 'w-8 h-3 bg-blue-400 rounded-full' 
                 : 'w-3 h-3 bg-white/30 hover:bg-white/50 rounded-full hover:scale-125'
             }`}
           >
