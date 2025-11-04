@@ -15,6 +15,7 @@ import {
   Shield,
   TrendingUp,
   Calendar,
+  Blocks,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -106,7 +107,7 @@ export default function FeaturesSection() {
         {/* Heading */}
         <div className="text-center mb-16 feature-heading">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            ✨ Powerful{" "}
+            <Blocks className="inline-block mr-2 font-medium w-15 w-12 h-12 text-5xl text-blue-600 mb-3" />
             <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
               Features
             </span>

@@ -3,13 +3,22 @@
 import { useState } from "react";
 import { Tab } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Warehouse, Zap, CheckCircle } from "lucide-react";
+import {
+  Warehouse,
+  Zap,
+  CheckCircle,
+  Store,
+  SprayCan,
+  Factory,
+  Pill,
+  FireExtinguisher,
+} from "lucide-react";
 
 const INDUSTRIES = [
   {
     id: "cold",
     title: "Cold Storage",
-    icon: <Warehouse className="h-12 w-12 text-blue-600" />,
+    icon: <Warehouse className="h-12 w-12  text-blue-900" />,
     description:
       "Manage perishable goods with temperature tracking, shelf-life monitoring, and client storage agreements.",
     features: [
@@ -27,7 +36,7 @@ const INDUSTRIES = [
   {
     id: "fert",
     title: "Fertilizers",
-    icon: <span className="text-3xl">🌾</span>,
+    icon: <FireExtinguisher className="h-12 w-12 text-orange-800" />,
     description:
       "Forecast demand, manage supplier networks, and stay compliant with agricultural standards.",
     features: [
@@ -45,7 +54,7 @@ const INDUSTRIES = [
   {
     id: "electronics",
     title: "Electronics",
-    icon: <Zap className="h-12 w-12 text-gray-700" />,
+    icon: <Zap className="h-12 w-12 text-blue-500" />,
     description:
       "Track serial numbers, manage warranties, and coordinate multi-location inventory effortlessly.",
     features: [
@@ -63,7 +72,7 @@ const INDUSTRIES = [
   {
     id: "retail",
     title: "Retail",
-    icon: <span className="text-3xl">🛍️</span>,
+    icon: <Factory className="h-12 w-12 text-orange-700" />,
     description:
       "Unified POS, loyalty, and inventory — run counter and online operations from one system.",
     features: [
@@ -81,7 +90,7 @@ const INDUSTRIES = [
   {
     id: "pharma",
     title: "Pharmaceutical",
-    icon: <span className="text-3xl">💊</span>,
+    icon: <Pill className="h-12 w-12 text-blue-600" />,
     description:
       "Batching, expiry tracking, and regulatory logs — built to support strict compliance.",
     features: [
