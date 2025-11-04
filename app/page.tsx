@@ -40,8 +40,69 @@ import {
   ChartBar as BarChart3,
 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const rightColumnRef = useRef<HTMLDivElement>(null);
+  const statsCardRef = useRef<HTMLDivElement>(null);
+  const achievementBadgeRef = useRef<HTMLDivElement>(null);
+  const testimonialCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!aboutSectionRef.current) return;
+
+      const scrollY = window.scrollY;
+      const sectionTop = aboutSectionRef.current.offsetTop;
+      const sectionHeight = aboutSectionRef.current.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      // Calculate scroll progress (0 to 1) when section is in view
+      const sectionStart = sectionTop - viewportHeight * 0.5;
+      const sectionEnd = sectionTop + sectionHeight - viewportHeight * 0.5;
+      const progress = Math.max(
+        0,
+        Math.min(1, (scrollY - sectionStart) / (sectionEnd - sectionStart))
+      );
+
+      // Apply 3D transformations
+      if (leftColumnRef.current) {
+        leftColumnRef.current.style.transform = `translateZ(${
+          progress * 50
+        }px) rotateY(${progress * 5}px)`;
+      }
+
+      if (rightColumnRef.current) {
+        rightColumnRef.current.style.transform = `translateZ(${
+          progress * 80
+        }px) rotateY(${-progress * 3}px)`;
+      }
+
+      if (statsCardRef.current) {
+        statsCardRef.current.style.transform = `translateZ(${
+          progress * 100
+        }px) rotateX(${progress * 2}px)`;
+      }
+
+      if (achievementBadgeRef.current) {
+        achievementBadgeRef.current.style.transform = `translateZ(${
+          progress * 120
+        }px) translateY(${Math.sin(progress * Math.PI) * 20}px)`;
+      }
+
+      if (testimonialCardRef.current) {
+        testimonialCardRef.current.style.transform = `translateZ(${
+          progress * 60
+        }px) translateY(${Math.cos(progress * Math.PI) * 15}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -95,6 +156,12 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Testimonials
+              </button>
+              <button
+                onClick={handleScheduleDemo}
                 className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
               >
                 Testimonials
@@ -416,105 +483,197 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  About{" "}
-                  <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                    Hisab Kitab
-                  </span>
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  We are Pakistan's premier business management platform,
-                  dedicated to empowering local businesses with cutting-edge
-                  technology solutions.
-                </p>
-              </div>
+      <section
+        id="about"
+        ref={aboutSectionRef}
+        className="py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 relative overflow-hidden sticky top-0 h-screen flex items-center"
+        style={{ perspective: "1000px" }}
+      >
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/5 to-orange-400/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-tr from-orange-400/5 to-blue-400/5 rounded-full blur-3xl"></div>
+        </div>
 
-              <div className="space-y-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-blue-100 to-orange-100 text-blue-800 border-0">
+              <Sparkles className="w-4 h-4 mr-2" />
+              About Our Journey
+            </Badge>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Empowering{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                Pakistani Businesses
+              </span>{" "}
+              Since 2018
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              We are Pakistan's premier business management platform, dedicated
+              to empowering local businesses with cutting-edge technology
+              solutions that drive growth and efficiency.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div
+              ref={leftColumnRef}
+              className="space-y-8 transform-gpu transition-transform duration-75 ease-out"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <div
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform-gpu"
+                style={{ transform: "translateZ(0px)" }}
+              >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-blue-600" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Target className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       Our Mission
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 leading-relaxed">
                       To digitally transform Pakistani businesses by providing
                       comprehensive, user-friendly management solutions that
-                      drive growth and efficiency.
+                      drive growth and efficiency across all industries.
                     </p>
                   </div>
                 </div>
+              </div>
 
+              <div
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform-gpu"
+                style={{ transform: "translateZ(0px)" }}
+              >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Lightbulb className="w-6 h-6 text-orange-600" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Lightbulb className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       Our Vision
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 leading-relaxed">
                       To become the leading business management platform in
                       Pakistan, enabling every business to reach its full
-                      potential through technology.
+                      potential through innovative technology and exceptional
+                      service.
                     </p>
                   </div>
                 </div>
+              </div>
 
+              <div
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform-gpu"
+                style={{ transform: "translateZ(0px)" }}
+              >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-gray-600" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Award className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       Our Values
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 leading-relaxed">
                       Innovation, reliability, and customer success drive
                       everything we do. We believe in building lasting
-                      partnerships with our clients.
+                      partnerships with our clients through transparency and
+                      excellence.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 shadow-lg">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                      10K+
+            <div
+              ref={rightColumnRef}
+              className="relative transform-gpu transition-transform duration-75 ease-out"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              {/* Main Stats Card */}
+              <div
+                ref={statsCardRef}
+                className="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-8 shadow-xl border border-gray-100 relative overflow-hidden transform-gpu"
+                style={{
+                  transform: "translateZ(0px)",
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-orange-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-500/10 to-blue-500/10 rounded-full translate-y-12 -translate-x-12"></div>
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                    By The Numbers
+                  </h3>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all duration-300">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                        10K+
+                      </div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Active Users
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      Active Users
+
+                    <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all duration-300">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                        99.9%
+                      </div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Uptime
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                      99.9%
+
+                    <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all duration-300">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                        50+
+                      </div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Cities
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Uptime</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                      50+
+
+                    <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-gray-100 hover:shadow-md transition-all duration-300">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                        24/7
+                      </div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Support
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Cities</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                      24/7
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">Support</div>
                   </div>
                 </div>
+              </div>
+
+              {/* Floating Achievement Badge */}
+              <div
+                ref={achievementBadgeRef}
+                className="absolute -top-6 -right-6 bg-gradient-to-r from-blue-500 to-orange-500 text-white rounded-xl py-3 px-5 shadow-xl flex items-center animate-float transform-gpu"
+                style={{ transform: "translateZ(0px)" }}
+              >
+                <Star className="w-5 h-5 mr-2 fill-current" />
+                <span className="font-bold text-sm">
+                  Trusted by 10,000+ Businesses
+                </span>
+              </div>
+
+              {/* Floating Quote Card */}
+              <div
+                ref={testimonialCardRef}
+                className="absolute -bottom-19 -left-25 bg-white rounded-xl p-4 shadow-lg border border-gray-100 max-w-xs animate-float delay-1000 transform-gpu"
+                style={{ transform: "translateZ(0px)" }}
+              >
+                <p className="text-gray-600 text-sm italic">
+                  "Hisab Kitab transformed our business operations completely.
+                  The best investment we made!"
+                </p>
+                <p className="text-gray-900 font-semibold mt-2 text-sm">
+                  - Ahmed Textiles, Faisalabad
+                </p>
               </div>
             </div>
           </div>
