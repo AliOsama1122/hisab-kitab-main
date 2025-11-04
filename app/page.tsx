@@ -85,7 +85,7 @@ export default function Home() {
                 onClick={handleScheduleDemo}
                 className="bg-primary hover:bg-green-700"
               >
-                <Phone className="bg-primary-600 w-4 h-4 mr-2" />
+                <Phone className="w-4 h-4 mr-2" />
                 Schedule Demo
               </Button>
             </div>
