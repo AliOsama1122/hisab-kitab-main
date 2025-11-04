@@ -88,7 +88,7 @@ const HeroCarousel = () => {
               onClick={() => scrollToSection('features')}
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-blue-700 text-lg px-8 py-4 h-auto"
+              className="border-white text-primary hover:bg-white hover:text-blue-700 text-lg px-8 py-4 h-auto"
             >
               See Features
             </Button>
