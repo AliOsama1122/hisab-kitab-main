@@ -31,8 +31,8 @@ export default function Home() {
               <Image
                 src="/logo_new.png"
                 alt="Hisab Kitab 360 Logo"
-                width={40}
-                height={40}
+                width={60}
+                height={60}
                 className="mr-3"
               />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
