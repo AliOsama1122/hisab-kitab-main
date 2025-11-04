@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Package, FileText, UploadCloud } from "lucide-react";
+import AddProductImage from "@/public/add-invoice.jpeg";
+import AddInvoiceImage from "@/public/add-invoice.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,6 +78,68 @@ export default function FBRProcessTimeline() {
       color: "from-green-100 to-green-50",
     },
   ];
+
+  const images = [
+    "./add-product.png",
+    "./add-invoice.jpeg",
+    "./add-product.png",
+  ];
+  useEffect(() => {
+    const showImage = (index) => {
+      gsap.to(".image-slide", {
+        opacity: 0,
+        y: 10,
+        duration: 0.4,
+      });
+      gsap.to(`.image-slide:nth-child(${index + 1})`, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    };
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".timeline-line-fill",
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+          },
+          transformOrigin: "top center",
+        }
+      );
+
+      stepsRef.current.forEach((step, i) => {
+        gsap.fromTo(
+          step,
+          { autoAlpha: 0, y: 80 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: step,
+              start: "top 80%",
+              end: "top 60%",
+              toggleActions: "play none none reverse",
+              onEnter: () => showImage(i),
+              onEnterBack: () => showImage(i),
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
