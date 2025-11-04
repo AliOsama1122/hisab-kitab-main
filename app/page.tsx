@@ -35,6 +35,9 @@ import Image from "next/image";
 import AboutSection from "@/components/webpages/home/AboutSection";
 import ServicesSection from "@/components/webpages/home/ServicesSection";
 import FBRProcessSection from "@/components/webpages/home/FBRProcessSection";
+import ScrollTextStrip from "@/components/webpages/home/ScrollTextStrip";
+import FeaturesSection from "@/components/webpages/home/FeaturesSection";
+import NicheSection from "@/components/webpages/home/NicheSection";
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -372,44 +375,9 @@ export default function Home() {
       </section>
 
       {/* Enhanced Infinite Scrolling Text Strip */}
-      <section className="relative py-3 overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 shadow-lg">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white rounded-full blur-3xl"></div>
-        </div>
+      <ScrollTextStrip />
 
-        {/* Animated border effect */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse delay-1000"></div>
-
-        <div className="relative z-10 flex animate-infinite-scroll whitespace-nowrap">
-          {[...Array(12)].map((_, i) => (
-            <span
-              key={i}
-              className="mx-6 text-white text-lg font-bold uppercase tracking-wider flex items-center"
-            >
-              <Sparkles className="w-5 h-5 mr-2 text-yellow-300 animate-pulse" />
-              Transform Your Business
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-500" />
-              Streamline Operations
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-700" />
-              Boost Growth
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-1000" />
-              Pakistan's Leading 360° Business Platform
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-300" />
-              CRM & E-Invoicing Solution
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-600" />
-              Trusted by 10,000+ Businesses
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-900" />
-              Built in Help Guides
-              <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-200" />
-              Affordable for Every Business
-            </span>
-          ))}
-        </div>
-      </section>
-
+      {/* FBR Process Section */}
       {<FBRProcessSection />}
 
       {/* About Section
@@ -716,7 +684,7 @@ export default function Home() {
       {<ServicesSection />}
 
       {/* Features Overview Section */}
-      <section id="features" className="py-20 bg-white">
+      {/* <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -814,10 +782,11 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
+      {<FeaturesSection />}
 
       {/* Industry-Specific Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
+      {/* <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -924,7 +893,8 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
+      <NicheSection />
 
       {/* Benefits Section */}
       <section className="py-20 bg-white">
