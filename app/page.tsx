@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Users, FileText, TrendingUp, Shield, Clock, ChartBar as BarChart3, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store } from "lucide-react";
 import Image from "next/image";
+import HeroCarousel from "@/components/hero-carousel";
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -52,74 +53,9 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 text-white py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-2xl">
-              <Badge className="bg-orange-500/20 text-orange-100 border-orange-400 mb-6">
-                Pakistan's #1 Business Management Platform
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Transform Your Business with 
-                <span className="text-orange-300 block">360° CRM & E-Invoicing</span>
-              </h1>
-              <p className="text-xl text-green-50 mb-8 leading-relaxed">
-                Streamline your Pakistani business operations with Hisab Kitab 360's comprehensive platform. 
-                Manage customers, generate compliant invoices, track sales, and oversee finances 
-                from a single, powerful dashboard designed for local businesses.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  onClick={handleScheduleDemo}
-                  size="lg" 
-                  className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto"
-                >
-                  <Calendar className="w-5 h-5 mr-3" />
-                  Schedule Free Demo
-                  <ArrowRight className="w-5 h-5 ml-3" />
-                </Button>
-                <Button 
-                  onClick={() => scrollToSection('features')}
-                  variant="outline" 
-                  size="lg" 
-                  className="border-orange-300 text-orange-100 hover:bg-blue-600/10 text-lg px-8 py-4 h-auto"
-                >
-                  See Features
-                </Button>
-              </div>
-              <div className="flex items-center mt-8 text-green-100">
-                <div className="flex -space-x-2 mr-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500 border-2 border-white"></div>
-                  <div className="w-8 h-8 rounded-full bg-orange-400 border-2 border-white"></div>
-                  <div className="w-8 h-8 rounded-full bg-orange-300 border-2 border-white"></div>
-                </div>
-                <span className="text-sm">Trusted by 500+ Pakistani businesses</span>
-              </div>
-            </div>
-            <div className="hidden lg:block">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-                <div className="bg-white rounded-lg p-6 shadow-2xl">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-gray-900 font-semibold">Sales Dashboard</h3>
-                    <Badge className="bg-orange-100 text-orange-800">Live</Badge>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Monthly Revenue</span>
-                      <span className="font-bold text-gray-900">Rs. 1,250,000</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full w-3/4"></div>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-500">Invoices Generated</span>
-                      <span className="text-orange-600">+24% this month</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroCarousel />
         </div>
       </section>
 
