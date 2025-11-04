@@ -9,29 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Users,
-  FileText,
-  TrendingUp,
-  Shield,
-  Clock,
-  Truck,
-  Warehouse,
-  Zap,
-  CircleCheck as CheckCircle,
-  Star,
-  ArrowRight,
-  Phone,
-  Calendar,
-  Building2,
-  Store,
-  Play,
-  Sparkles,
-  Globe,
-  Database,
-  ChartBar as BarChart,
-  Shield as ShieldIcon
-} from "lucide-react";
+import { Users, FileText, TrendingUp, Shield, Clock, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store, Play, Sparkles, Globe, Database, ChartBar as BarChart, Shield as ShieldIcon, Mail, MapPin, Award, Target, Lightbulb, Headphones as HeadphonesIcon, CreditCard, ChartBar as BarChart3 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -40,14 +18,13 @@ export default function Home() {
   };
 
   const handleScheduleDemo = () => {
-    // In a real implementation, this would open a scheduling modal or redirect to a booking page
     window.open("tel:+923001234567", "_self");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
+      <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -58,35 +35,53 @@ export default function Home() {
                 height={40}
                 className="mr-3"
               />
-              <span className="text-2xl font-bold text-gray-900">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
                 Hisab Kitab 360
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <button
+                onClick={() => scrollToSection("home")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Services
+              </button>
+              <button
                 onClick={() => scrollToSection("features")}
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
               >
                 Features
               </button>
               <button
-                onClick={() => scrollToSection("industries")}
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                onClick={() => scrollToSection("testimonials")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
               >
-                Industries
+                Testimonials
               </button>
               <button
-                onClick={() => scrollToSection("benefits")}
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
               >
-                Benefits
+                Contact
               </button>
               <Button
                 onClick={handleScheduleDemo}
-                className="bg-orange-600 hover:bg-orange-700"
+                className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 <Phone className="w-4 h-4 mr-2" />
-                Schedule Demo
+                Get Started
               </Button>
             </div>
           </div>
@@ -94,10 +89,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
             backgroundImage: "url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"
           }}
@@ -105,23 +100,22 @@ export default function Home() {
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-500/20 rounded-full blur-3xl animate-float delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-orange-400/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-orange-400/10 to-blue-400/10 rounded-full blur-3xl animate-float delay-1000"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="text-center lg:text-left space-y-8">
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-fade-in-up delay-100">
-                <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/20">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-blue-100">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
                   <span className="text-sm font-medium text-gray-700">10,000+ Active Users</span>
                 </div>
-                <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/20">
-                  <Shield className="w-4 h-4 text-blue-600 mr-2" />
+                <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-orange-100">
+                  <Shield className="w-4 h-4 text-orange-600 mr-2" />
                   <span className="text-sm font-medium text-gray-700">99.9% Uptime</span>
                 </div>
               </div>
@@ -129,35 +123,35 @@ export default function Home() {
               {/* Main Headline */}
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight opacity-0 animate-fade-in-up delay-200">
-                  <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                     Pakistan's Leading
                   </span>
                   <br />
-                  <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
+                  <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent animate-gradient">
                     360° Business Platform
                   </span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-gray-600 max-w-2xl opacity-0 animate-fade-in-up delay-300">
                   Transform your Pakistani business with our unified CRM and E-Invoicing platform. 
-                  <span className="font-semibold text-blue-700"> Streamline operations, manage customers, and boost growth</span> 
+                  <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent"> Streamline operations, manage customers, and boost growth</span> 
                   from one powerful dashboard.
                 </p>
               </div>
 
               {/* Feature Pills */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 opacity-0 animate-fade-in-up delay-400">
-                <div className="flex items-center bg-gradient-to-r from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-full px-4 py-2 border border-blue-200/50">
+                <div className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-full px-4 py-2 border border-blue-200">
                   <Users className="w-4 h-4 text-blue-600 mr-2" />
                   <span className="text-sm font-medium text-blue-800">CRM Management</span>
                 </div>
-                <div className="flex items-center bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200/50">
-                  <FileText className="w-4 h-4 text-green-600 mr-2" />
-                  <span className="text-sm font-medium text-green-800">E-Invoicing</span>
+                <div className="flex items-center bg-gradient-to-r from-orange-50 to-orange-100 rounded-full px-4 py-2 border border-orange-200">
+                  <FileText className="w-4 h-4 text-orange-600 mr-2" />
+                  <span className="text-sm font-medium text-orange-800">E-Invoicing</span>
                 </div>
-                <div className="flex items-center bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200/50">
-                  {/* <BarChart3 className="w-4 h-4 text-purple-600 mr-2" /> */}
-                  <span className="text-sm font-medium text-purple-800">Analytics</span>
+                <div className="flex items-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-full px-4 py-2 border border-gray-200">
+                  <BarChart3 className="w-4 h-4 text-gray-600 mr-2" />
+                  <span className="text-sm font-medium text-gray-800">Analytics</span>
                 </div>
               </div>
 
@@ -166,7 +160,7 @@ export default function Home() {
                 <Button
                   onClick={handleScheduleDemo}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 h-auto group"
+                  className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 h-auto group"
                 >
                   <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                   Watch Demo
@@ -175,7 +169,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700 hover:text-blue-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/80"
+                  className="border-2 border-blue-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700 hover:text-blue-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/80"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule Free Demo
@@ -197,10 +191,10 @@ export default function Home() {
             <div className="relative opacity-0 animate-fade-in-left delay-700">
               <div className="relative">
                 {/* Main Dashboard */}
-                <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-6 transform hover:scale-105 transition-all duration-500">
+                <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100 p-6 transform hover:scale-105 transition-all duration-500">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-orange-600 rounded-lg flex items-center justify-center">
                         <BarChart className="w-4 h-4 text-white" />
                       </div>
                       <div>
@@ -217,7 +211,7 @@ export default function Home() {
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-100">
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-xs text-blue-600 font-medium">Revenue</p>
@@ -229,16 +223,16 @@ export default function Home() {
                         <div className="bg-blue-600 h-1 rounded-full w-3/4 animate-pulse"></div>
                       </div>
                     </div>
-                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
+                    <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 border border-orange-100">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-green-600 font-medium">Customers</p>
-                          <p className="text-lg font-bold text-green-900">1,247</p>
+                          <p className="text-xs text-orange-600 font-medium">Customers</p>
+                          <p className="text-lg font-bold text-orange-900">1,247</p>
                         </div>
-                        <Users className="w-6 h-6 text-green-600" />
+                        <Users className="w-6 h-6 text-orange-600" />
                       </div>
-                      <div className="mt-2 bg-green-200 rounded-full h-1">
-                        <div className="bg-green-600 h-1 rounded-full w-4/5 animate-pulse"></div>
+                      <div className="mt-2 bg-orange-200 rounded-full h-1">
+                        <div className="bg-orange-600 h-1 rounded-full w-4/5 animate-pulse"></div>
                       </div>
                     </div>
                   </div>
@@ -247,7 +241,7 @@ export default function Home() {
                   <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center justify-between mb-3">
                       <p className="text-sm font-medium text-gray-700">Monthly Growth</p>
-                      <div className="flex items-center text-green-600">
+                      <div className="flex items-center text-blue-600">
                         <TrendingUp className="w-4 h-4 mr-1" />
                         <span className="text-xs font-medium">+23.5%</span>
                       </div>
@@ -256,7 +250,7 @@ export default function Home() {
                       {[40, 65, 45, 80, 55, 90, 70].map((height, index) => (
                         <div
                           key={index}
-                          className="bg-gradient-to-t from-blue-400 to-blue-600 rounded-sm flex-1 animate-pulse"
+                          className="bg-gradient-to-t from-blue-400 to-orange-400 rounded-sm flex-1 animate-pulse"
                           style={{ height: `${height}%`, animationDelay: `${index * 0.1}s` }}
                         ></div>
                       ))}
@@ -265,9 +259,9 @@ export default function Home() {
                 </div>
 
                 {/* Floating Cards */}
-                <div className="absolute -top-4 -right-4 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-white/30 p-4 animate-float delay-500">
+                <div className="absolute -top-4 -right-4 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-100 p-4 animate-float delay-500">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-orange-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -277,9 +271,9 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-white/30 p-4 animate-float delay-1000">
+                <div className="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-100 p-4 animate-float delay-1000">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-orange-400 to-blue-500 rounded-full flex items-center justify-center">
                       <Globe className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -304,12 +298,215 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  About <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Hisab Kitab 360</span>
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  We are Pakistan's premier business management platform, dedicated to empowering local businesses with cutting-edge technology solutions.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Target className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Mission</h3>
+                    <p className="text-gray-600">To digitally transform Pakistani businesses by providing comprehensive, user-friendly management solutions that drive growth and efficiency.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Lightbulb className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Vision</h3>
+                    <p className="text-gray-600">To become the leading business management platform in Pakistan, enabling every business to reach its full potential through technology.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-gray-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Values</h3>
+                    <p className="text-gray-600">Innovation, reliability, and customer success drive everything we do. We believe in building lasting partnerships with our clients.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 shadow-lg">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">10K+</div>
+                    <div className="text-sm text-gray-600 mt-1">Active Users</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">99.9%</div>
+                    <div className="text-sm text-gray-600 mt-1">Uptime</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">50+</div>
+                    <div className="text-sm text-gray-600 mt-1">Cities</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">24/7</div>
+                    <div className="text-sm text-gray-600 mt-1">Support</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Services</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive business solutions tailored for Pakistani enterprises
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">CRM Solutions</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Complete customer relationship management with Pakistani business workflows in mind
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Customer Database Management</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Lead Tracking & Conversion</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Communication History</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-100 to-orange-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="h-8 w-8 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl">E-Invoicing</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Automated invoicing system compliant with Pakistani tax regulations
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Tax Compliant Invoices</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Automated Calculations</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Payment Tracking</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="h-8 w-8 text-gray-600" />
+                </div>
+                <CardTitle className="text-xl">Business Analytics</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Real-time insights and reporting for data-driven decisions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Sales Performance</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Financial Reports</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Custom Dashboards</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Truck className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">Supply Chain</CardTitle>
+                <CardDescription className="text-gray-600">
+                  End-to-end supply chain management and tracking solutions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Inventory Management</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Supplier Relations</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Shipment Tracking</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CreditCard className="h-8 w-8 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl">Financial Management</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Complete financial oversight with expense tracking and budgeting
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Expense Tracking</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Budget Planning</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />Cash Flow Analysis</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:transform hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-gray-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <HeadphonesIcon className="h-8 w-8 text-gray-600" />
+                </div>
+                <CardTitle className="text-xl">24/7 Support</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Round-the-clock customer support in Urdu and English
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Live Chat Support</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Phone Support</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-gray-500 mr-2" />Training Sessions</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Features Overview Section */}
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Complete Business Management Suite
+              Powerful <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Features</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Everything you need to run your Pakistani business efficiently,
@@ -319,9 +516,9 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-blue-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                <Users className="h-12 w-12 text-blue-600 mb-4" />
+                <Users className="h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>Customer Relationship Management</CardTitle>
                 <CardDescription>
                   Manage customer data, track interactions, and build stronger
@@ -331,9 +528,9 @@ export default function Home() {
               </CardHeader>
             </Card>
 
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                <FileText className="h-12 w-12 text-orange-600 mb-4" />
+                <FileText className="h-12 w-12 text-orange-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>E-Invoicing & Billing</CardTitle>
                 <CardDescription>
                   Generate professional invoices, track payments, and maintain
@@ -343,9 +540,9 @@ export default function Home() {
               </CardHeader>
             </Card>
 
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-blue-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                <Truck className="h-12 w-12 text-blue-600 mb-4" />
+                <Truck className="h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>Shipment & Supplier Tracking</CardTitle>
                 <CardDescription>
                   Monitor your supply chain, track shipments, and manage
@@ -354,9 +551,9 @@ export default function Home() {
               </CardHeader>
             </Card>
 
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                {/* <BarChart3 className="h-12 w-12 text-blue-600 mb-4" /> */}
+                <BarChart3 className="h-12 w-12 text-orange-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>Financial Reports & Analytics</CardTitle>
                 <CardDescription>
                   Get real-time insights into your business performance with
@@ -365,9 +562,9 @@ export default function Home() {
               </CardHeader>
             </Card>
 
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-blue-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                <Shield className="h-12 w-12 text-orange-600 mb-4" />
+                <Shield className="h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>Role-Based Access Control</CardTitle>
                 <CardDescription>
                   Secure your business data with role-based permissions,
@@ -377,9 +574,9 @@ export default function Home() {
               </CardHeader>
             </Card>
 
-            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg group">
               <CardHeader>
-                <TrendingUp className="h-12 w-12 text-blue-600 mb-4" />
+                <TrendingUp className="h-12 w-12 text-orange-600 mb-4 group-hover:scale-110 transition-transform" />
                 <CardTitle>Expense Management</CardTitle>
                 <CardDescription>
                   Track business expenses, categorize spending, and maintain
@@ -393,7 +590,7 @@ export default function Home() {
             <Button
               onClick={handleScheduleDemo}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Book a Free Demo
@@ -403,11 +600,11 @@ export default function Home() {
       </section>
 
       {/* Industry-Specific Section */}
-      <section id="industries" className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              360° Solutions for Pakistani Industries
+              360° Solutions for <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Industries</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Hisab Kitab 360 adapts to your industry's unique workflows and
@@ -417,7 +614,7 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="bg-white border-l-4 border-l-blue-500 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-l-4 border-l-blue-500 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <CardHeader>
                 <Warehouse className="h-16 w-16 text-blue-600 mb-4 mx-auto" />
                 <CardTitle className="text-center text-xl">
@@ -446,9 +643,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-l-4 border-l-green-500 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-l-4 border-l-orange-500 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <CardHeader>
-                <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="h-16 w-16 bg-gradient-to-r from-orange-100 to-orange-200 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🌾</span>
                 </div>
                 <CardTitle className="text-center text-xl">
@@ -458,28 +655,28 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                     <span>Seasonal demand forecasting</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                     <span>Agricultural supplier network</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                     <span>Regulatory compliance tracking</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                     <span>Bulk order management</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-l-4 border-l-purple-500 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-l-4 border-l-gray-500 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <CardHeader>
-                <Zap className="h-16 w-16 text-purple-600 mb-4 mx-auto" />
+                <Zap className="h-16 w-16 text-gray-600 mb-4 mx-auto" />
                 <CardTitle className="text-center text-xl">
                   Electronics
                 </CardTitle>
@@ -510,11 +707,11 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Built for Every Pakistani Business
+              Built for Every <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Business</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Whether you're an enterprise, accountant, or small business owner,
@@ -524,7 +721,7 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200 hover:shadow-lg transition-all duration-300">
               <Building2 className="h-16 w-16 text-blue-600 mb-6" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 For Enterprises
@@ -549,7 +746,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 mb-6 relative">
                 <Image
                   src="/logo_new.png"
@@ -563,26 +760,26 @@ export default function Home() {
               </h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                   <span>Automated tax compliance</span>
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                   <span>Accurate financial tracking</span>
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                   <span>Client management tools</span>
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
                   <span>Professional invoice generation</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
-              <Store className="h-16 w-16 text-purple-600 mb-6" />
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <Store className="h-16 w-16 text-gray-600 mb-6" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 For Small Businesses
               </h3>
@@ -611,7 +808,7 @@ export default function Home() {
             <Button
               onClick={handleScheduleDemo}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
               See It in Action
@@ -620,12 +817,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-orange-600 text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Business?
+          </h2>
+          <p className="text-xl text-blue-50 mb-8">
+            Join hundreds of Pakistani businesses that trust Hisab Kitab 360 for
+            their CRM and E-Invoicing needs. Schedule your free demo today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={handleScheduleDemo}
+              size="lg"
+              className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              <Calendar className="w-5 h-5 mr-3" />
+              Schedule Free Demo
+              <ArrowRight className="w-5 h-5 ml-3" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Call Now: +92 300 123 4567
+            </Button>
+          </div>
+          <p className="text-blue-200 mt-6">
+            Free setup • No long-term contracts • Local support
+          </p>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="testimonials" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Pakistani Businesses
+              Trusted by <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Pakistani Businesses</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See how Hisab Kitab 360 has helped businesses across Pakistan
@@ -634,7 +866,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-white hover:shadow-lg transition-all duration-300">
+            <Card className="bg-white hover:shadow-lg transition-all duration-300 border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <div className="flex text-yellow-400">
@@ -658,7 +890,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white hover:shadow-lg transition-all duration-300">
+            <Card className="bg-white hover:shadow-lg transition-all duration-300 border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <div className="flex text-yellow-400">
@@ -682,7 +914,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white hover:shadow-lg transition-all duration-300">
+            <Card className="bg-white hover:shadow-lg transition-all duration-300 border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <div className="flex text-yellow-400">
@@ -710,38 +942,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-green-50 mb-8">
-            Join hundreds of Pakistani businesses that trust Hisab Kitab 360 for
-            their CRM and E-Invoicing needs. Schedule your free demo today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={handleScheduleDemo}
-              size="lg"
-              className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto"
-            >
-              <Calendar className="w-5 h-5 mr-3" />
-              Schedule Free Demo
-              <ArrowRight className="w-5 h-5 ml-3" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-orange-300 text-orange-100 hover:bg-blue-600/10 text-lg px-8 py-4 h-auto"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Call Now: +92 300 123 4567
-            </Button>
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Get in <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">Touch</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ready to transform your business? Contact us today for a free consultation and demo.
+            </p>
           </div>
-          <p className="text-blue-200 mt-6">
-            Free setup • No long-term contracts • Local support
-          </p>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Phone</p>
+                      <p className="text-gray-600">+92 300 123 4567</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Email</p>
+                      <p className="text-gray-600">info@hisabkitab.pk</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-gray-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Address</p>
+                      <p className="text-gray-600">Karachi, Pakistan</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-orange-100 rounded-lg flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Business Hours</p>
+                      <p className="text-gray-600">Mon-Fri: 9AM-6PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-6 border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Why Choose Us?</h4>
+                <ul className="space-y-2 text-gray-600">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Local Pakistani business expertise</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />24/7 customer support</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Free setup and training</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" />No long-term contracts</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Free Demo</h3>
+              <div className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                  <input type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Business Type</label>
+                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <option>Select your industry</option>
+                    <option>Textiles</option>
+                    <option>Electronics</option>
+                    <option>Cold Storage</option>
+                    <option>Fertilizers</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                  <textarea rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your business needs..."></textarea>
+                </div>
+                
+                <Button 
+                  className="w-full bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  size="lg"
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Schedule Free Demo
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -758,7 +1079,7 @@ export default function Home() {
                   height={32}
                   className="mr-3"
                 />
-                <span className="text-2xl font-bold">Hisab Kitab 360</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Hisab Kitab 360</span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
                 Pakistan's leading 360° CRM and E-Invoicing platform, empowering
@@ -766,7 +1087,7 @@ export default function Home() {
               </p>
               <Button
                 onClick={handleScheduleDemo}
-                className="bg-orange-600 hover:bg-orange-700"
+                className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 Schedule a Demo
@@ -778,35 +1099,35 @@ export default function Home() {
               <ul className="space-y-2 text-gray-300">
                 <li>
                   <button
+                    onClick={() => scrollToSection("home")}
+                    className="hover:text-orange-400 transition-colors"
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("about")}
+                    className="hover:text-orange-400 transition-colors"
+                  >
+                    About
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="hover:text-orange-400 transition-colors"
+                  >
+                    Services
+                  </button>
+                </li>
+                <li>
+                  <button
                     onClick={() => scrollToSection("features")}
                     className="hover:text-orange-400 transition-colors"
                   >
                     Features
                   </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("industries")}
-                    className="hover:text-orange-400 transition-colors"
-                  >
-                    Industries
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("benefits")}
-                    className="hover:text-orange-400 transition-colors"
-                  >
-                    Benefits
-                  </button>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-orange-400 transition-colors"
-                  >
-                    Pricing
-                  </a>
                 </li>
               </ul>
             </div>
