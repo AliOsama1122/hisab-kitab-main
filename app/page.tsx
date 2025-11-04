@@ -40,6 +40,7 @@ import {
   ChartBar as BarChart3,
 } from "lucide-react";
 import Image from "next/image";
+import AboutSection from "@/components/webpages/home/AboutSection";
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -415,7 +416,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -519,7 +520,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      {<AboutSection />}
 
       {/* Services Section */}
       <section
