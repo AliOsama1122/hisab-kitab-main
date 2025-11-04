@@ -43,7 +43,7 @@ export default function Home() {
               <button onClick={() => scrollToSection('benefits')} className="text-gray-600 hover:text-green-600 transition-colors">
                 Benefits
               </button>
-              <Button onClick={handleScheduleDemo} className="bg-green-600 hover:bg-green-700">
+              <Button onClick={handleScheduleDemo} className="bg-primary-600 hover:bg-green-700">
                 <Phone className="w-4 h-4 mr-2" />
                 Schedule Demo
               </Button>
