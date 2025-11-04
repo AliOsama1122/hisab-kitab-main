@@ -148,7 +148,7 @@ export default function Home() {
                   <span className="text-sm font-medium text-green-800">E-Invoicing</span>
                 </div>
                 <div className="flex items-center bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200/50">
-                  <BarChart3 className="w-4 h-4 text-purple-600 mr-2" />
+                  {/* <BarChart3 className="w-4 h-4 text-purple-600 mr-2" /> */}
                   <span className="text-sm font-medium text-purple-800">Analytics</span>
                 </div>
               </div>
@@ -345,10 +345,10 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
             </Card>
-
+s
             <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
               <CardHeader>
-                <BarChart3 className="h-12 w-12 text-blue-600 mb-4" />
+                {/* <BarChart3 className="h-12 w-12 text-blue-600 mb-4" /> */}
                 <CardTitle>Financial Reports & Analytics</CardTitle>
                 <CardDescription>
                   Get real-time insights into your business performance with
