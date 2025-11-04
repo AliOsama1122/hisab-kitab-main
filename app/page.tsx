@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
 import {
   Users,
   FileText,
@@ -345,7 +346,7 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
             </Card>
-s
+
             <Card className="border-2 hover:border-orange-200 transition-all duration-300 hover:shadow-lg">
               <CardHeader>
                 {/* <BarChart3 className="h-12 w-12 text-blue-600 mb-4" /> */}
