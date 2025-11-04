@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, FileText, TrendingUp, Shield, Clock, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store, Play, Sparkles, Globe, Database , Shield as ShieldIcon, Mail, MapPin, Award, Target, Lightbulb, Headphones as HeadphonesIcon, CreditCard } from "lucide-react";
+import { Users, FileText, TrendingUp, Shield, Clock, Truck, Warehouse, Zap, CircleCheck as CheckCircle, Star, ArrowRight, Phone, Calendar, Building2, Store, Play, Sparkles, Globe, Database, Shield as ShieldIcon, Mail, MapPin, Award, Target, Lightbulb, Headphones as HeadphonesIcon, CreditCard, ChartBar as BarChart3 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
