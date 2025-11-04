@@ -62,7 +62,7 @@ const HeroCarousel = () => {
 
   return (
     <div className="relative">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 items-center transition-all delay-150 duration-300">
         <div className="max-w-2xl transition-all delay-150 duration-300">
           <Badge className="bg-orange-500/20 text-orange-100 border-orange-400 mb-6">
             {slides[currentSlide].badge}
