@@ -410,8 +410,8 @@ export default function AboutSection() {
                             data-target={number}
                           >
                             {number}
-                            <span>{suffix}</span>
                           </span>
+                          <span>{suffix}</span>
                         </div>
                         <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-600 uppercase tracking-wide">
                           {label}
