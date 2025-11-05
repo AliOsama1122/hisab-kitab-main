@@ -17,6 +17,11 @@ const handleScheduleDemo = () => {
   window.open("tel:+923001234567", "_self");
 };
 
+const handleContactUs = (id) => {
+  const el = document.getElementById(id);
+  el?.scrollIntoView({ behavior: "smooth" });
+};
+
 export default function HeroSection() {
   return (
     <section
@@ -115,6 +120,7 @@ export default function HeroSection() {
                 <Sparkles className="w-5 h-5 ml-3 group-hover:rotate-12 transition-transform" />
               </Button>
               <Button
+                onClick={() => handleContactUs("contact")}
                 variant="outline"
                 size="lg"
                 className="border-2 border-blue-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700 hover:text-blue-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/80"
