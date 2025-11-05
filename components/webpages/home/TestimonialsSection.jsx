@@ -13,7 +13,7 @@ const testimonials = [
     name: "Muhammad Ahmed",
     title: "Owner, Ahmed Textiles, Faisalabad",
     quote:
-      "Hisab Kitab transformed our inventory management. We reduced manual work by 60% and improved our invoice accuracy significantly. The CRM features help us maintain better relationships with our buyers.",
+      "Hisab Kitab 360 transformed our inventory management. We reduced manual work by 60% and improved our invoice accuracy significantly. The CRM features help us maintain better relationships with our buyers.",
     rating: 5,
     avatar: "./testimonial-image-1.jpg",
   },
@@ -64,8 +64,9 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-lg text-gray-600 mt-4">
-            See how <strong>Hisab Kitab</strong> has helped businesses across
-            Pakistan streamline their operations and improve their bottom line.
+            See how <strong>Hisab Kitab 360</strong> has helped businesses
+            across Pakistan streamline their operations and improve their bottom
+            line.
           </p>
         </div>
 

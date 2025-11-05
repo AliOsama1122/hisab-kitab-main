@@ -14,7 +14,6 @@ import CTASection from "@/components/webpages/home/CTASection";
 import TestimonialsSection from "@/components/webpages/home/TestimonialsSection";
 import ContactUsSection from "@/components/webpages/home/ContactUsSection";
 import HeroSection from "@/components/webpages/home/HeroSection";
-import PricingSection from "@/components/webpages/home/PricingSection";
 import WhatsAppButton from "@/components/webpages/general/WhatsAppButton";
 
 export default function Home() {
@@ -34,15 +33,12 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Image
-                src="/logo_new.png"
+                src="/transparent-logo.png"
                 alt="Hisab Kitab Logo"
-                width={60}
-                height={60}
+                width={150}
+                height={150}
                 className="mr-3"
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-                Hisab Kitab
-              </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <button
@@ -1076,7 +1072,6 @@ export default function Home() {
         </div>
       </section> */}
       <TestimonialsSection />
-      <PricingSection />
 
       {/* Contact Section */}
       {/* <section id="contact" className="py-20 bg-white">
@@ -1262,15 +1257,12 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
                 <Image
-                  src="/transparent-logo.png"
+                  src="/footer-logo.png"
                   alt="Hisab Kitab Logo"
-                  width={60}
-                  height={60}
+                  width={150}
+                  height={150}
                   className="mr-3 bg-gray-900"
                 />
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                  Hisab Kitab
-                </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
                 Pakistan's leading 360° CRM and E-Invoicing platform, empowering
@@ -1344,8 +1336,8 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2024 Hisab Kitab. All rights reserved. | Made for Pakistani
-              Businesses
+              &copy; 2025 Hisab Kitab 360. All rights reserved. | Made for
+              Pakistani Businesses
             </p>
           </div>
         </div>

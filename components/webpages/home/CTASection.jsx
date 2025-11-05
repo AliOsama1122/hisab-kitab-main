@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 
-const handleScheduleDemo = () => {
-  window.open("tel:+923001234567", "_self");
-};
-
 export default function CTASection() {
+  const handleContactUs = (id) => {
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScheduleDemo = () => {
+    window.open("tel:+923001234567", "_self");
+  };
+
   return (
     <section className="py-20 bg-gradient-to-r from-blue-600 to-orange-600 text-white">
       <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -18,7 +23,7 @@ export default function CTASection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            onClick={handleScheduleDemo}
+            onClick={() => handleContactUs("contact")}
             size="lg"
             className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
@@ -27,6 +32,7 @@ export default function CTASection() {
             <ArrowRight className="w-5 h-5 ml-3" />
           </Button>
           <Button
+            onClick={handleScheduleDemo}
             variant="outline"
             size="lg"
             className="border-white text-inherit hover:bg-white hover:text-blue-600 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"

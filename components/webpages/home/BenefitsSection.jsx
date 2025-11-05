@@ -59,7 +59,7 @@ const cardData = [
       "Affordable pricing plans",
       "Easy-to-use interface & quick setup", // Combined for brevity
       "Real-time local customer support",
-      "Manage 'Hisab Kitab' on the go", // More culturally relevant language
+      "Manage 'Hisab Kitab 360' on the go", // More culturally relevant language
     ],
   },
   {
@@ -70,7 +70,7 @@ const cardData = [
       "Affordable pricing plans",
       "Easy-to-use interface & quick setup", // Combined for brevity
       "Real-time local customer support",
-      "Manage 'Hisab Kitab' on the go", // More culturally relevant language
+      "Manage 'Hisab Kitab 360' on the go", // More culturally relevant language
     ],
   },
 ];
@@ -103,7 +103,7 @@ export default function BenefitsSection() {
           <p className="text-xl text-gray-600 mt-4 font-light">
             Whether you're an established enterprise, a financial expert, or a
             growing small business owner,
-            <span className="font-medium text-gray-800"> Hisab Kitab </span>
+            <span className="font-medium text-gray-800"> Hisab Kitab 360 </span>
             provides customized tools to manage your specific financial needs.
           </p>
         </motion.div>

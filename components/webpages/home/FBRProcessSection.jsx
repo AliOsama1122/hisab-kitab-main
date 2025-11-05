@@ -137,10 +137,16 @@ export default function FBRProcessTimeline() {
               <div
                 key={i}
                 ref={addStepRef}
-                className="relative flex flex-col lg:flex-row items-start justify-between"
+                className={`relative flex flex-col lg:flex-row items-start justify-between ${
+                  i === 1 ? "lg:flex-row-reverse" : ""
+                }`}
               >
                 {/* LEFT: Image */}
-                <div className="hidden lg:flex w-1/2 pr-8 mr-8 justify-end">
+                <div
+                  className={`hidden lg:flex w-1/2 pr-8 mr-8 justify-end ${
+                    i === 1 && "ml-8 pl-12"
+                  }`}
+                >
                   <div className="relative w-full h-80">
                     <Image
                       src={step.image}
