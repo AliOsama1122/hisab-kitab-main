@@ -11,6 +11,7 @@ import {
   MessageSquare, // Added for the message button
 } from "lucide-react";
 import { motion } from "framer-motion"; // For subtle animations
+import { contactEmail, contactNumber } from "@/lib/utils";
 
 // Define the contact points data
 const contactPoints = [
@@ -19,12 +20,12 @@ const contactPoints = [
     title: "Call Us Directly",
     detail: "+92 300 123 4567",
     color: "blue",
-    href: "tel:+923001234567",
+    href: contactNumber,
   },
   {
     icon: Mail,
     title: "Send Us an Email",
-    detail: "info@metadevzone.com",
+    detail: contactEmail,
     color: "orange",
     href: "mailto:info@metadevzone.com",
   },

@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { handleScheduleDemo, scrollToSection } from "@/lib/utils";
+import {
+  contactEmail,
+  contactNumber,
+  handleScheduleDemo,
+  scrollToSection,
+} from "@/lib/utils";
 import { Calendar, Clock, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
@@ -73,10 +78,10 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-gray-300">
               <li className="flex flex-row gap-1">
-                <Mail className="text-blue-900 mr-2" /> info@metadevzone.com
+                <Mail className="text-blue-900 mr-2" /> {contactEmail}
               </li>
               <li className="flex flex-row gap-1">
-                <Phone className="text-blue-900 mr-2" /> +92 300 123 4567
+                <Phone className="text-blue-900 mr-2" /> {contactNumber}
               </li>
               <li className="flex flex-row gap-1">
                 <MapPin className="text-blue-900 mr-2" /> Sahiwal, Pakistan
