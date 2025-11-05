@@ -78,7 +78,7 @@ export default function HeroSection() {
               <p className="text-xl md:text-2xl text-gray-600 max-w-2xl opacity-0 animate-fade-in-up delay-300">
                 Transform your Pakistani business with our unified CRM and
                 E-Invoicing platform.
-                <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
+                <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent me-2">
                   {" "}
                   Streamline operations, manage customers, and boost growth
                 </span>
