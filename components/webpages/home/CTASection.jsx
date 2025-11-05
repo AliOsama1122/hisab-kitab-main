@@ -1,49 +1,53 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Phone } from "lucide-react";
+import { handleContactUs } from "@/lib/utils";
 
 export default function CTASection() {
-  const handleContactUs = (id) => {
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleScheduleDemo = () => {
-    window.open("tel:+923001234567", "_self");
-  };
+  const ProductScreens = () => (
+    <div className="relative h-56 md:h-56 w-full lg:w-[unset]">
+      <img
+        src="./cta-image.png"
+        alt=""
+        className="max-w-full h-auto object-cover"
+      />
+    </div>
+  );
 
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-orange-600 text-white">
-      <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Ready to Transform Your Business?
-        </h2>
-        <p className="text-xl text-blue-50 mb-8">
-          Join hundreds of Pakistani businesses that trust Hisab Kitab for their
-          CRM and E-Invoicing needs. Schedule your free demo today.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            onClick={() => handleContactUs("contact")}
-            size="lg"
-            className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-          >
-            <Calendar className="w-5 h-5 mr-3" />
-            Schedule Free Demo
-            <ArrowRight className="w-5 h-5 ml-3" />
-          </Button>
-          <Button
-            onClick={handleScheduleDemo}
-            variant="outline"
-            size="lg"
-            className="border-white text-inherit hover:bg-white hover:text-blue-600 text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-          >
-            <Phone className="w-5 h-5 mr-2" />
-            Call Now: +92 300 123 4567
-          </Button>
+    <section className="py-0 pb-6 bg-white" id="services">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative text-white p-8 md:p-12 lg:p-16 rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
+          {/* Radial Glow Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.12),transparent_70%)]"></div>
+
+          {/* Content Layer */}
+          <div className="relative z-10 lg:flex flex-wrap lg:items-center lg:justify-between">
+            <div className="lg:w-7/12 mb-10 lg:mb-0">
+              <h2 className="text-4xl text-5xl font-semibold mb-6 leading-tight">
+                Run your business anytime, anywhere!
+              </h2>
+
+              <p className="text-sm text-gray-300 mb-10 max-w-lg">
+                Reporting → Yearly Report, Invoicing, Batch Reports,Payment Over
+                All Reports, Stock summary report, Customer Summary report, and
+                Supplier Summary report
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                <Button
+                  onClick={() => handleContactUs("contact")}
+                  size="lg"
+                  className="bg-orange-600 text-white hover:bg-orange-700 text-lg px-8 py-4 h-auto shadow-lg transition-all duration-300 rounded-lg"
+                >
+                  Book Demo
+                </Button>
+              </div>
+            </div>
+
+            <div className="lg:w-5/12">
+              <ProductScreens />
+            </div>
+          </div>
         </div>
-        <p className="text-blue-200 mt-6">
-          Free setup • No long-term contracts • Local support
-        </p>
       </div>
     </section>
   );

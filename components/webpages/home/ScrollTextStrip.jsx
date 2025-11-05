@@ -26,7 +26,7 @@ export default function ScrollTextStrip() {
             <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-700" />
             Boost Growth
             <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-1000" />
-            Pakistan's Leading 360° Business Platform
+            Leading 360° Business Platform
             <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-300" />
             CRM & E-Invoicing Solution
             <Sparkles className="w-5 h-5 mx-2 text-yellow-300 animate-pulse delay-600" />

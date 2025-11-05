@@ -21,7 +21,7 @@ const testimonials = [
     name: "Fatima Khan",
     title: "Operations Manager, Karachi Cold Storage",
     quote:
-      "The temperature monitoring integration and automated reporting saved us countless hours. Our clients now receive detailed storage reports automatically, improving our service quality and trust.",
+      "The real-time reporting and automated record tracking have saved us countless hours. Our clients now receive instant warehouse insights and detailed reports, boosting transparency and trust.",
     rating: 5,
     avatar: "./testimonial-image-3.jpg",
   },
@@ -29,7 +29,7 @@ const testimonials = [
     name: "Ali Hassan",
     title: "Store Manager, Pak Electronics, Lahore",
     quote:
-      "Managing warranties and serial numbers became effortless with Hisab Kitab. Our customer service improved dramatically, and we can track products across all our store locations in real-time.",
+      "Hisab Kitab made warranty and serial tracking effortless. Now we can monitor every product across multiple store locations in real time — and our customer service has never been stronger.",
     rating: 5,
     avatar: "./testimonial-image-3.jpg",
   },
@@ -60,13 +60,12 @@ export default function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             Trusted by{" "}
             <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-              Pakistani Businesses 🇵🇰
+              Businesses
             </span>
           </h2>
           <p className="text-lg text-gray-600 mt-4">
             See how <strong>Hisab Kitab 360</strong> has helped businesses
-            across Pakistan streamline their operations and improve their bottom
-            line.
+            streamline their operations and improve their bottom line.
           </p>
         </div>
 

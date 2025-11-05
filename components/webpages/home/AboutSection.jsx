@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Target,
@@ -7,212 +8,411 @@ import {
   Clock,
   MapPin,
   Headphones,
+  ArrowRight,
 } from "lucide-react";
-import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function AboutSection() {
-  const ref = useRef(null);
+  const sectionRef = useRef(null);
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+  const statsRef = useRef(null);
+  const floatingShapesRef = useRef([]);
+
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.02]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  // Framer Motion transforms for parallax
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 3D tilt effect for main container
+      gsap.to(containerRef.current, {
+        rotationY: 0,
+        rotationX: 0,
+        transformPerspective: 1000,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      // Floating shapes animation
+      floatingShapesRef.current.forEach((shape, index) => {
+        gsap.to(shape, {
+          y: index % 2 === 0 ? -30 : 30,
+          rotation: index % 2 === 0 ? 10 : -10,
+          duration: 3 + index,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
+
+      // Cards stagger animation with 3D effect
+      gsap.fromTo(
+        cardsRef.current,
+        {
+          rotationY: -15,
+          rotationX: 10,
+          opacity: 0,
+          y: 50,
+        },
+        {
+          rotationY: 0,
+          rotationX: 0,
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: cardsRef.current[0],
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Stats counter animation
+      const counters = statsRef.current?.querySelectorAll(".counter");
+      counters?.forEach((counter) => {
+        const target = parseInt(counter.getAttribute("data-target"));
+        gsap.to(counter, {
+          innerText: target,
+          duration: 2,
+          snap: { innerText: 1 },
+          stagger: 1,
+          scrollTrigger: {
+            trigger: counter,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      // Magnetic button effect
+      const buttons = sectionRef.current?.querySelectorAll(".magnetic");
+      buttons?.forEach((button) => {
+        button.addEventListener("mousemove", (e) => {
+          const rect = button.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          gsap.to(button, {
+            x: (x - rect.width / 2) * 0.2,
+            y: (y - rect.height / 2) * 0.2,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        button.addEventListener("mouseleave", () => {
+          gsap.to(button, {
+            x: 0,
+            y: 0,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.5)",
+          });
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const valueCards = [
+    {
+      icon: <Target className="w-6 h-6 text-white" />,
+      title: "Our Mission",
+      desc: "Empower businesses with intelligent tools that enhance decision-making and accelerate digital transformation.",
+      bg: "bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700",
+      border: "border-blue-100/20",
+    },
+    {
+      icon: <Lightbulb className="w-6 h-6 text-white" />,
+      title: "Our Vision",
+      desc: "Build most trusted technology ecosystem where innovation drives nationwide business success.",
+      bg: "bg-gradient-to-br from-orange-500 via-orange-600 to-red-600",
+      border: "border-orange-100/20",
+    },
+    {
+      icon: <Award className="w-6 h-6 text-white" />,
+      title: "Our Values",
+      desc: "Innovation, integrity, and impact — we build lasting partnerships through reliable, transparent solutions.",
+      bg: "bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800",
+      border: "border-slate-100/20",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: Users,
+      number: "100+",
+      label: "Active Businesses",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: Clock,
+      number: "99.9%",
+      label: "System Uptime",
+      color: "from-emerald-500 to-green-500",
+    },
+    {
+      icon: MapPin,
+      number: "50+",
+      label: "Cities Served",
+      color: "from-orange-500 to-amber-500",
+    },
+    {
+      icon: Headphones,
+      number: "24/7",
+      label: "Support",
+      color: "from-indigo-500 to-purple-500",
+    },
+  ];
 
   return (
     <section
+      ref={sectionRef}
       id="about"
-      className="relative py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
+      className="relative min-h-screen py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
     >
-      {/* Professional background elements */}
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-40 w-80 h-80 bg-blue-100/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-slate-100/30 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-50/10 rounded-full blur-[120px]" />
+        {/* Floating 3D Shapes */}
+        <div
+          ref={(el) => (floatingShapesRef.current[0] = el)}
+          className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-300/20 rounded-full blur-[80px]"
+        />
+        <div
+          ref={(el) => (floatingShapesRef.current[1] = el)}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-red-300/10 rounded-full blur-[100px]"
+        />
+        <div
+          ref={(el) => (floatingShapesRef.current[2] = el)}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-200/15 to-teal-300/10 rounded-full blur-[60px]"
+        />
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
-      <div
-        ref={ref}
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* LEFT CONTENT */}
-          <motion.div
-            className="space-y-12"
-            style={{ y, opacity }}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            {/* Header Section */}
-            <div className="space-y-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          ref={containerRef}
+          className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+        >
+          {/* LEFT CONTENT - Enhanced with 3D effects */}
+          <motion.div className="space-y-12" style={{ y, opacity, scale }}>
+            {/* Header with Sticky Effect */}
+            <motion.div
+              className="space-y-6 sticky top-25"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-4"
+                className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-4 magnetic"
               >
-                About Our Company
+                <span className="flex items-center space-x-2">
+                  <span>About Us</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
               </motion.div>
 
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-                Revolutionizing Business{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
-                  Management in Pakistan
-                </span>
+              <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+                Transforming{" "}
+                <motion.span
+                  className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"
+                  animate={{
+                    backgroundPosition: ["0%", "100%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                  style={{
+                    backgroundSize: "200% 200%",
+                  }}
+                >
+                  Your Business
+                </motion.span>
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-                We are Pakistan's premier business management platform,
-                transforming how local enterprises manage, analyze, and scale
-                their operations through cutting-edge technology and intuitive
-                design.
-              </p>
-            </div>
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed max-w-xl"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                We are a premier business management platform, empowering local
+                enterprises to manage, analyze, and scale their operations with
+                cutting-edge technology and intuitive design.
+              </motion.p>
+            </motion.div>
 
-            {/* Value Propositions */}
-            <div className="space-y-8">
-              {[
-                {
-                  icon: <Target className="w-5 h-5 text-white" />,
-                  title: "Our Mission",
-                  desc: "Empower businesses with intelligent tools that enhance decision-making and accelerate digital transformation.",
-                  bg: "bg-gradient-to-br from-blue-500 to-blue-600",
-                  border: "border-blue-100",
-                },
-                {
-                  icon: <Lightbulb className="w-5 h-5 text-white" />,
-                  title: "Our Vision",
-                  desc: "Build Pakistan's most trusted technology ecosystem where innovation drives nationwide business success.",
-                  bg: "bg-gradient-to-br from-orange-500 to-orange-600",
-                  border: "border-orange-100",
-                },
-                {
-                  icon: <Award className="w-5 h-5 text-white" />,
-                  title: "Our Values",
-                  desc: "Innovation, integrity, and impact — we build lasting partnerships through reliable, transparent solutions.",
-                  bg: "bg-gradient-to-br from-slate-600 to-slate-700",
-                  border: "border-slate-100",
-                },
-              ].map((item, i) => (
+            {/* Value Cards with 3D Hover Effects */}
+            <div className="space-y-6">
+              {valueCards.map((item, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-start space-x-4 group cursor-pointer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 + 0.3, duration: 0.5 }}
-                  whileHover={{ x: 4 }}
+                  ref={(el) => (cardsRef.current[i] = el)}
+                  className="group relative cursor-pointer"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div
-                    className={`w-12 h-12 ${item.bg} rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 flex-shrink-0`}
-                  >
-                    {item.icon}
-                  </div>
-                  <div className="flex-1 pt-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                  {/* 3D Card Effect */}
+                  <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/50 transform-style-preserve-3d">
+                    <div className="flex items-start space-x-4">
+                      <motion.div
+                        className={`w-14 h-14 ${item.bg} rounded-xl flex items-center justify-center shadow-2xl transform-style-preserve-3d`}
+                        whileHover={{
+                          rotateY: 180,
+                          scale: 1.1,
+                        }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <div className="flex-1 pt-1">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* RIGHT STATS SECTION */}
+          {/* RIGHT STATS SECTION - Enhanced with Counters */}
           <motion.div
             className="relative"
-            style={{ scale }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            {/* Main Stats Card */}
+            {/* Main Stats Card with 3D Transform */}
             <motion.div
-              whileHover={{ y: -5, scale: 1.01 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative z-10 bg-white/80 backdrop-blur-xl rounded-2xl p-8 lg:p-10 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.08)] border border-gray-100/80"
+              ref={statsRef}
+              whileHover={{
+                rotateY: 5,
+                rotateX: -2,
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="relative z-10 bg-white/90 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/50 transform-style-preserve-3d"
             >
-              <div className="text-center mb-10">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Trusted by Businesses Across Pakistan
-                </h3>
-                <p className="text-gray-500">
-                  Delivering excellence and reliability at scale
-                </p>
+              <div className="text-center mb-12">
+                <motion.h3
+                  className="text-3xl font-bold text-gray-900 mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                  Trusted Nationwide
+                </motion.h3>
+                <motion.p
+                  className="text-gray-500 text-lg"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  Powering businesses with reliability and innovation
+                </motion.p>
               </div>
 
               <div className="grid grid-cols-2 gap-8">
-                {[
-                  {
-                    icon: Users,
-                    number: "10K+",
-                    label: "Active Businesses",
-                    color: "from-blue-500 to-blue-600",
-                  },
-                  {
-                    icon: Clock,
-                    number: "99.9%",
-                    label: "System Uptime",
-                    color: "from-emerald-500 to-emerald-600",
-                  },
-                  {
-                    icon: MapPin,
-                    number: "50+",
-                    label: "Cities Served",
-                    color: "from-orange-500 to-orange-600",
-                  },
-                  {
-                    icon: Headphones,
-                    number: "24/7",
-                    label: "Support",
-                    color: "from-indigo-500 to-indigo-600",
-                  },
-                ].map(({ icon: Icon, number, label, color }, i) => (
+                {stats.map(({ icon: Icon, number, label, color }, i) => (
                   <motion.div
                     key={i}
                     className="text-center group"
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
+                    transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
+                    whileHover={{ y: -8 }}
                   >
-                    <div className="flex justify-center mb-4">
-                      <div
-                        className={`w-14 h-14 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
-                      >
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                    <div
-                      className={`text-3xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent mb-2`}
+                    <motion.div
+                      className={`w-16 h-16 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center shadow-xl mx-auto mb-6 group-hover:shadow-2xl transition-all duration-300`}
+                      whileHover={{
+                        rotate: 360,
+                        scale: 1.1,
+                      }}
+                      transition={{ duration: 0.6 }}
                     >
-                      {number}
+                      <Icon className="w-7 h-7 text-white" />
+                    </motion.div>
+                    <div
+                      className={`text-4xl font-black bg-gradient-to-r ${color} bg-clip-text text-transparent mb-3`}
+                    >
+                      <span className="counter">{number}</span>
                     </div>
-                    <div className="text-sm font-medium text-gray-600">
+                    <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
                       {label}
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Bottom accent */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mt-8" />
+              {/* Animated Progress Bar */}
+              <motion.div
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 rounded-full mt-8"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
+              />
             </motion.div>
 
-            {/* Floating elements for depth */}
+            {/* Floating 3D Elements */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl shadow-lg border border-blue-50"
+              className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-3xl shadow-2xl border border-blue-50/50 transform-style-preserve-3d"
+              animate={{
+                rotateY: [0, 180, 360],
+                rotateX: [0, 30, 0],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear",
+              }}
             />
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl shadow-lg border border-orange-50"
+              className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-orange-100 to-amber-200 rounded-2xl shadow-2xl border border-orange-50/50 transform-style-preserve-3d"
+              animate={{
+                rotateX: [0, 180, 360],
+                rotateY: [0, 30, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear",
+              }}
             />
           </motion.div>
         </div>

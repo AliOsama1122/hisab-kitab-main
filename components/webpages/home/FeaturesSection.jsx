@@ -24,6 +24,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { handleScheduleDemo } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +62,7 @@ export default function FeaturesSection() {
     {
       icon: <FileText className="h-12 w-12 text-orange-600 mb-4" />,
       title: "E-Invoicing & Billing",
-      desc: "Generate invoices, track payments, and stay compliant with Pakistani tax regulations.",
+      desc: "Generate invoices, track payments, and stay compliant with tax regulations.",
       border: "border-orange-200",
     },
     {
@@ -90,9 +91,6 @@ export default function FeaturesSection() {
     },
   ];
 
-  const handleScheduleDemo = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  };
 
   return (
     <section

@@ -24,14 +24,14 @@ const contactPoints = [
   {
     icon: Mail,
     title: "Send Us an Email",
-    detail: "info@hisabkitab.pk",
+    detail: "info@metadevzone.com",
     color: "orange",
-    href: "mailto:info@hisabkitab.pk",
+    href: "mailto:info@metadevzone.com",
   },
   {
     icon: MapPin,
     title: "Our Location",
-    detail: "Karachi, Pakistan (Headquarters)",
+    detail: "Sahiwal, Pakistan (Headquarters)",
     color: "gray",
     href: "#map-location", // Scroll to the map
   },
@@ -143,8 +143,7 @@ export default function ContactUsSection() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center text-base">
                   <CheckCircle className="h-5 w-5 text-blue-500 flex-shrink-0 mr-3" />
-                  Local Expertise: Software tailored for Pakistani businesses &
-                  tax laws.
+                  Local Expertise: Software tailored for businesses & tax laws.
                 </li>
                 <li className="flex items-center text-base">
                   <CheckCircle className="h-5 w-5 text-orange-500 flex-shrink-0 mr-3" />

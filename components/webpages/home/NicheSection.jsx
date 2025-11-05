@@ -7,12 +7,11 @@ import {
   Warehouse,
   Zap,
   CheckCircle,
-  Store,
-  SprayCan,
   Factory,
   Pill,
   FireExtinguisher,
 } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 
 const INDUSTRIES = [
   {
@@ -20,12 +19,12 @@ const INDUSTRIES = [
     title: "Cold Storage",
     icon: <Warehouse className="h-12 w-12  text-blue-900" />,
     description:
-      "Manage perishable goods with temperature tracking, shelf-life monitoring, and client storage agreements.",
+      "Manage warehouse operations with real-time tracking, automated record management, and room-wise performance insights.",
     features: [
-      "Temperature monitoring integration",
-      "Perishable inventory tracking",
-      "Quality-control documentation",
-      "Client storage agreements",
+      "Real-time warehouse reports",
+      "Room and section management",
+      "Automated record tracking",
+      "Live operational analytics",
     ],
     ad: {
       tag: "Case Study",
@@ -38,12 +37,12 @@ const INDUSTRIES = [
     title: "Fertilizers",
     icon: <FireExtinguisher className="h-12 w-12 text-orange-800" />,
     description:
-      "Forecast demand, manage supplier networks, and stay compliant with agricultural standards.",
+      "Streamline your fertilizer operations with connected supplier and customer networks, real-time product tracking, and smart sales and shipment management.",
     features: [
-      "Seasonal demand forecasting",
-      "Agricultural supplier network",
-      "Regulatory compliance tracking",
-      "Bulk order management",
+      "Supplier and customer network management",
+      "Product and inventory tracking",
+      "Sales and shipment management",
+      "Bulk order and distribution control",
     ],
     ad: {
       tag: "Insight",
@@ -112,14 +111,17 @@ export default function NicheTabsSection() {
   const active = INDUSTRIES[selected];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
+    <section
+      className="py-20 bg-gradient-to-br from-gray-50 to-orange-50"
+      id="features"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
             360° Solutions for{" "}
             <span className="bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
-              Pakistani Industries
+              Industries
             </span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
@@ -162,11 +164,11 @@ export default function NicheTabsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[100%]"
                 >
                   {/* Left content */}
-                  <div className="lg:col-span-7">
-                    <div className="p-8 bg-white rounded-3xl shadow-lg border border-gray-100">
+                  <div className="lg:col-span-12">
+                    <div className="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 h-[100%]">
                       <div className="flex items-start gap-5 mb-6">
                         <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-100 to-orange-100">
                           {active.icon}
@@ -200,18 +202,18 @@ export default function NicheTabsSection() {
                       </div>
 
                       <div className="mt-6 flex items-center gap-4">
-                        <button className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-orange-600 text-white font-medium shadow hover:opacity-90">
-                          Request Industry Demo
-                        </button>
-                        <button className="text-sm text-gray-500 hover:text-gray-700">
-                          Learn more
+                        <button
+                          className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-orange-600 text-white font-medium shadow hover:opacity-90"
+                          onClick={() => scrollToSection("contact")}
+                        >
+                          Request Demo
                         </button>
                       </div>
                     </div>
                   </div>
 
                   {/* Right ad content */}
-                  <div className="lg:col-span-5">
+                  {/* <div className="lg:col-span-5">
                     <motion.div
                       key={active.ad.title}
                       initial={{ opacity: 0, x: 30 }}
@@ -249,7 +251,7 @@ export default function NicheTabsSection() {
                         </div>
                       </div>
                     </motion.div>
-                  </div>
+                  </div> */}
                 </motion.div>
               </AnimatePresence>
             </Tab.Panels>
