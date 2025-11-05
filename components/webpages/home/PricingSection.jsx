@@ -104,7 +104,7 @@ export default function PricingSection() {
                     {plan.name}
                   </h3>
                   <p className="text-3xl font-extrabold text-gray-900 mb-1">
-                    ₹{plan.price}
+                    ${plan.price}
                   </p>
                   <span className="text-gray-500">{plan.period}</span>
                 </CardHeader>
