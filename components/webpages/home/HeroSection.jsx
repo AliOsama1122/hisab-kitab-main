@@ -69,7 +69,7 @@ export default function HeroSection() {
                 <span className="font-semibold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent">
                   {" "}
                   Streamline operations, manage customers, and boost growth
-                </span>
+                </span>{" "}
                 from one powerful dashboard.
               </p>
             </div>

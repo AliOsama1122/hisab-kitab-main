@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { contactEmail, contactNumber } from "@/lib/utils";
+import { enqueueSnackbar } from "notistack";
 
 // Define the contact points data
 const contactPoints = [
@@ -51,6 +52,13 @@ const featureVariants = {
 };
 
 export default function ContactUsSection() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    enqueueSnackbar("Your message has been sent successfully", {
+      variant: "success",
+    }); // e.target.reset();
+  };
+
   return (
     <section
       id="contact"
@@ -182,7 +190,7 @@ export default function ContactUsSection() {
               hour.
             </p>
 
-            <form className="space-y-5 md:space-y-6">
+            <form className="space-y-5 md:space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* First Name */}
                 <div>

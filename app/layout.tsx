@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import MouseFollower from "@/components/ui/MouseFollower";
+import { NotistackProvider } from "@/hooks/NotistackProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
     "Transform your business with Hisab Kitab 360's unified CRM and E-Invoicing. Streamline operations, manage customers, generate compliant invoices, and track finances from one powerful dashboard.",
   keywords:
     "Business management, CRM, E-invoicing, business software, invoice generator",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children} <ScrollToTopButton /> <WhatsAppButton /> <MouseFollower />
+        <NotistackProvider>{children}</NotistackProvider> <ScrollToTopButton />{" "}
+        <WhatsAppButton /> <MouseFollower />
       </body>
     </html>
   );
