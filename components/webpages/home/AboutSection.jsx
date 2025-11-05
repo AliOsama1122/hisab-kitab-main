@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Target,
@@ -88,22 +88,37 @@ export default function AboutSection() {
         }
       );
 
-      // Stats counter animation
+      // Stats counter animation - FIXED
       const counters = statsRef.current?.querySelectorAll(".counter");
-      counters?.forEach((counter) => {
-        const target = parseInt(counter.getAttribute("data-target"));
-        gsap.to(counter, {
-          innerText: target,
-          duration: 2,
-          snap: { innerText: 1 },
-          stagger: 1,
-          scrollTrigger: {
-            trigger: counter,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        });
+      counters?.forEach((counter, i) => {
+        const targetValue = counter.getAttribute("data-target");
+
+        if (targetValue) {
+          // For numeric values, animate from 0 to target
+          if (
+            !isNaN(targetValue) &&
+            typeof parseFloat(targetValue) === "number"
+          ) {
+            gsap.fromTo(
+              counter,
+              { innerText: 0 },
+              {
+                innerText: parseFloat(targetValue),
+                duration: 2,
+                snap: { innerText: 1 },
+                scrollTrigger: {
+                  trigger: counter,
+                  start: "top 80%",
+                  end: "bottom 20%",
+                  toggleActions: "play none none none",
+                },
+              }
+            );
+          } else {
+            // For string values like "24/7", just set the text directly
+            counter.innerText = targetValue;
+          }
+        }
       });
 
       // Magnetic button effect
@@ -163,25 +178,29 @@ export default function AboutSection() {
   const stats = [
     {
       icon: Users,
-      number: "100+",
+      number: 100,
+      suffix: "+",
       label: "Active Businesses",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Clock,
-      number: "99.9%",
+      number: 99.99,
+      suffix: "%",
       label: "System Uptime",
       color: "from-emerald-500 to-green-500",
     },
     {
       icon: MapPin,
-      number: "50+",
+      number: 50,
+      suffix: "+",
       label: "Cities Served",
       color: "from-orange-500 to-amber-500",
     },
     {
       icon: Headphones,
       number: "24/7",
+      suffix: "",
       label: "Support",
       color: "from-indigo-500 to-purple-500",
     },
@@ -191,55 +210,60 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative min-h-screen py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
+      className="relative min-h-screen py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating 3D Shapes */}
         <div
           ref={(el) => (floatingShapesRef.current[0] = el)}
-          className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-300/20 rounded-full blur-[80px]"
+          className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-gradient-to-br from-blue-200/30 to-indigo-300/20 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px]"
         />
         <div
           ref={(el) => (floatingShapesRef.current[1] = el)}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-red-300/10 rounded-full blur-[100px]"
+          className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-gradient-to-br from-orange-200/20 to-red-300/10 rounded-full blur-[50px] sm:blur-[70px] md:blur-[100px]"
         />
         <div
           ref={(el) => (floatingShapesRef.current[2] = el)}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-200/15 to-teal-300/10 rounded-full blur-[60px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-40 sm:h-40 md:w-64 md:h-64 bg-gradient-to-br from-emerald-200/15 to-teal-300/10 rounded-full blur-[30px] sm:blur-[45px] md:blur-[60px]"
         />
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:20px_20px] sm:bg-[size:30px_30px] md:bg-[size:50px_50px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={containerRef}
-          className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center"
         >
           {/* LEFT CONTENT - Enhanced with 3D effects */}
-          <motion.div className="space-y-12" style={{ y, opacity, scale }}>
+          <motion.div
+            className="space-y-10 sm:space-y-12"
+            style={{ y, opacity, scale }}
+          >
             {/* Header with Sticky Effect */}
             <motion.div
-              className="space-y-6 sticky top-25"
+              className="space-y-6"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-4 magnetic"
+                viewport={{ once: true }}
+                className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4"
               >
-                <span className="flex items-center space-x-2">
+                <span className="flex items-center space-x-1.5 sm:space-x-2">
                   <span>About Us</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </span>
               </motion.div>
 
-              <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
                 Transforming{" "}
                 <motion.span
                   className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"
@@ -260,10 +284,11 @@ export default function AboutSection() {
               </h2>
 
               <motion.p
-                className="text-xl text-gray-600 leading-relaxed max-w-xl"
+                className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
+                viewport={{ once: true }}
               >
                 We are a premier business management platform, empowering local
                 enterprises to manage, analyze, and scale their operations with
@@ -272,7 +297,7 @@ export default function AboutSection() {
             </motion.div>
 
             {/* Value Cards with 3D Hover Effects */}
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               {valueCards.map((item, i) => (
                 <motion.div
                   key={i}
@@ -282,10 +307,10 @@ export default function AboutSection() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {/* 3D Card Effect */}
-                  <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/50 transform-style-preserve-3d">
-                    <div className="flex items-start space-x-4">
+                  <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-5 sm:p-6 shadow-xl border border-white/50 transform-style-preserve-3d">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
                       <motion.div
-                        className={`w-14 h-14 ${item.bg} rounded-xl flex items-center justify-center shadow-2xl transform-style-preserve-3d`}
+                        className={`w-12 h-12 sm:w-14 sm:h-14 ${item.bg} rounded-xl flex items-center justify-center shadow-xl transform-style-preserve-3d`}
                         whileHover={{
                           rotateY: 180,
                           scale: 1.1,
@@ -294,11 +319,11 @@ export default function AboutSection() {
                       >
                         {item.icon}
                       </motion.div>
-                      <div className="flex-1 pt-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      <div className="flex-1 pt-0.5">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                           {item.title}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -318,6 +343,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
             {/* Main Stats Card with 3D Transform */}
             <motion.div
@@ -327,71 +353,88 @@ export default function AboutSection() {
                 rotateX: -2,
               }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="relative z-10 bg-white/90 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/50 transform-style-preserve-3d"
+              className="relative z-10 bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-white/50 transform-style-preserve-3d"
             >
-              <div className="text-center mb-12">
+              <div className="text-center mb-8 sm:mb-10 md:mb-12">
                 <motion.h3
-                  className="text-3xl font-bold text-gray-900 mb-4"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
+                  viewport={{ once: true }}
                 >
                   Trusted Nationwide
                 </motion.h3>
                 <motion.p
-                  className="text-gray-500 text-lg"
+                  className="text-base sm:text-lg text-gray-500"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
+                  viewport={{ once: true }}
                 >
                   Powering businesses with reliability and innovation
                 </motion.p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8">
-                {stats.map(({ icon: Icon, number, label, color }, i) => (
-                  <motion.div
-                    key={i}
-                    className="text-center group"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <motion.div
-                      className={`w-16 h-16 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center shadow-xl mx-auto mb-6 group-hover:shadow-2xl transition-all duration-300`}
-                      whileHover={{
-                        rotate: 360,
-                        scale: 1.1,
-                      }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <Icon className="w-7 h-7 text-white" />
-                    </motion.div>
-                    <div
-                      className={`text-4xl font-black bg-gradient-to-r ${color} bg-clip-text text-transparent mb-3`}
-                    >
-                      <span className="counter">{number}</span>
-                    </div>
-                    <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
-                      {label}
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                {stats.map(
+                  ({ icon: Icon, number, label, color, suffix }, i) => {
+                    console.log("Rendering number:", number);
+
+                    return (
+                      <motion.div
+                        key={i}
+                        className="text-center group"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -8 }}
+                      >
+                        <motion.div
+                          className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br ${color} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg sm:shadow-xl mx-auto mb-4 sm:mb-5 md:mb-6 group-hover:shadow-2xl transition-all duration-300`}
+                          whileHover={{
+                            rotate: 360,
+                            scale: 1.1,
+                          }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                        </motion.div>
+                        <div
+                          className={`text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r ${color} bg-clip-text text-transparent mb-1 sm:mb-2`}
+                        >
+                          <span
+                            className="counter"
+                            id={`counter-${i}`}
+                            data-target={number}
+                          >
+                            {number}
+                            <span>{suffix}</span>
+                          </span>
+                        </div>
+                        <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-600 uppercase tracking-wide">
+                          {label}
+                        </div>
+                      </motion.div>
+                    );
+                  }
+                )}
               </div>
 
               {/* Animated Progress Bar */}
               <motion.div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 rounded-full mt-8"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-0.5 sm:w-24 sm:h-1 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 rounded-full mt-6 sm:mt-8"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: true }}
               />
             </motion.div>
 
             {/* Floating 3D Elements */}
             <motion.div
-              className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-3xl shadow-2xl border border-blue-50/50 transform-style-preserve-3d"
+              className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-2xl sm:rounded-3xl shadow-xl border border-blue-50/50 transform-style-preserve-3d"
               animate={{
                 rotateY: [0, 180, 360],
                 rotateX: [0, 30, 0],
@@ -403,7 +446,7 @@ export default function AboutSection() {
               }}
             />
             <motion.div
-              className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-orange-100 to-amber-200 rounded-2xl shadow-2xl border border-orange-50/50 transform-style-preserve-3d"
+              className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-gradient-to-br from-orange-100 to-amber-200 rounded-xl sm:rounded-2xl shadow-xl border border-orange-50/50 transform-style-preserve-3d"
               animate={{
                 rotateX: [0, 180, 360],
                 rotateY: [0, 30, 0],

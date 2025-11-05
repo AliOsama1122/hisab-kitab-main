@@ -222,21 +222,6 @@
     animation: slideInFromRight 0.8s ease-out forwards;
   }
 
-  /* Enhanced infinite scrolling animation */
-  @keyframes infinite-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  .animate-infinite-scroll {
-    display: inline-block;
-    animation: infinite-scroll 25s linear infinite;
-  }
-
   /* Hover effects for cards */
   .card-hover {
     transition: all 0.3s ease;
@@ -306,10 +291,6 @@
 
 .magnetic {
   transition: all 0.3s ease;
-}
-
-.counter::before {
-  content: attr(data-target);
 }
 
 /* You can place this in globals.css */

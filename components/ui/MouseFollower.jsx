@@ -21,7 +21,7 @@ export default function MouseFollower() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999]"
+      className="flex hidden sm:block fixed top-0 left-0 pointer-events-none z-[9999]"
       style={{ x: springX, y: springY }}
     >
       <Calculator className="text-blue-500 opacity-80 h-5 w-5" />
