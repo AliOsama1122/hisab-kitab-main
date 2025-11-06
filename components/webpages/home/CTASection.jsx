@@ -15,14 +15,14 @@ export default function CTASection() {
   return (
     <section className="py-0 pb-6 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative text-white p-8 md:p-12 lg:p-16 rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="relative text-white p-8 md:p-12 lg:p-12 rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
           {/* Radial Glow Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.12),transparent_70%)]"></div>
 
           {/* Content Layer */}
           <div className="relative z-10 lg:flex flex-wrap lg:items-center lg:justify-between">
             <div className="lg:w-7/12 mb-10 lg:mb-0">
-              <h2 className="text-4xl text-5xl font-semibold mb-6 leading-tight">
+              <h2 className="text-3xl font-semibold mb-6 leading-tight">
                 Run your business anytime, anywhere!
               </h2>
 

@@ -143,11 +143,11 @@ export default function HeroSection() {
 
           {/* Right Visual - Dashboard Mockup (Hidden on mobile) */}
           <div className="relative opacity-0 animate-fade-in-left delay-700 flex justify-center lg:block hidden">
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-full">
               <img
                 src="./slider-image.png"
                 alt="Dashboard Mockup"
-                className="w-full rounded-2xl shadow-xl"
+                className="w-[1000px] h-auto object-contain"
               />
             </div>
           </div>
